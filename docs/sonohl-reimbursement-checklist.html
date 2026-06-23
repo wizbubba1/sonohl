@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SonoHL — Reimbursement Readiness Checklist</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#EEF2F5;
+    --surface:#FFFFFF;
+    --ink:#101921;
+    --ink-soft:#54626E;
+    --ink-faint:#8694A0;
+    --line:#D8E0E6;
+    --line-soft:#E7ECF0;
+    --panel:#0E1822;        /* instrument panel */
+    --panel-2:#152330;
+    --signal:#11A8AB;       /* oscilloscope teal */
+    --signal-dim:#0c7d80;
+    --gate:#D99633;         /* amber: locked / gate */
+    --risk:#D2543F;         /* forbidden / risk */
+    --done:#2C9468;         /* completed */
+    --radius:14px;
+    --shadow:0 1px 0 rgba(16,25,33,.04), 0 8px 26px -18px rgba(16,25,33,.5);
+  }
+
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{
+    background:
+      radial-gradient(1200px 500px at 12% -10%, #F6F9FB 0%, transparent 60%),
+      var(--paper);
+    color:var(--ink);
+    font-family:"IBM Plex Sans",system-ui,sans-serif;
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:880px;margin:0 auto;padding:28px 22px 80px}
+
+  /* ---------- Monitor / hero ---------- */
+  .monitor{
+    background:linear-gradient(180deg,var(--panel-2),var(--panel));
+    color:#E9F1F2;
+    border-radius:18px;
+    padding:24px 26px 20px;
+    box-shadow:0 24px 60px -30px rgba(14,24,34,.85);
+    position:relative;
+    overflow:hidden;
+    border:1px solid #1d2c39;
+  }
+  .monitor .topline{
+    display:flex;justify-content:space-between;align-items:flex-start;
+    gap:20px;flex-wrap:wrap;
+  }
+  .brand .kicker{
+    font-family:"IBM Plex Mono",monospace;
+    font-size:11px;letter-spacing:.22em;text-transform:uppercase;
+    color:var(--signal);margin:0 0 6px;
+  }
+  .brand h1{
+    font-family:"Space Grotesk",sans-serif;font-weight:700;
+    font-size:30px;line-height:1.04;margin:0;letter-spacing:-.01em;
+  }
+  .brand h1 small{
+    display:block;font-family:"IBM Plex Sans",sans-serif;font-weight:400;
+    font-size:14px;letter-spacing:0;color:#9FB1B6;margin-top:7px;max-width:46ch;
+  }
+  .readout{text-align:right;min-width:140px}
+  .readout .pct{
+    font-family:"Space Grotesk",sans-serif;font-weight:700;
+    font-size:46px;line-height:1;letter-spacing:-.02em;
+    font-variant-numeric:tabular-nums;
+  }
+  .readout .pctlabel{
+    font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.18em;
+    text-transform:uppercase;color:#8aa0a3;margin-top:4px;
+  }
+
+  /* ECG trace */
+  .trace{margin:18px 0 16px;height:42px;position:relative}
+  .trace svg{width:100%;height:100%;display:block}
+  .trace .grid{stroke:#233543;stroke-width:1}
+  .trace .line{
+    fill:none;stroke:var(--signal);stroke-width:2;
+    stroke-linecap:round;stroke-linejoin:round;
+    filter:drop-shadow(0 0 5px rgba(17,168,171,.55));
+  }
+  .trace .sweep{
+    fill:none;stroke:#bdfbff;stroke-width:2.4;stroke-linecap:round;
+    stroke-dasharray:120 1600;
+    animation:sweep 4.6s linear infinite;
+    filter:drop-shadow(0 0 6px rgba(189,251,255,.8));
+  }
+  @keyframes sweep{from{stroke-dashoffset:0}to{stroke-dashoffset:-1720}}
+
+  .legs{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:10px;
+    border-top:1px solid #21323f;padding-top:16px;
+  }
+  .leg{
+    background:rgba(255,255,255,.03);border:1px solid #213240;
+    border-radius:10px;padding:11px 12px;
+  }
+  .leg .lname{
+    font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.16em;
+    text-transform:uppercase;color:#88a0a3;display:flex;align-items:center;gap:6px;
+  }
+  .leg .dot{width:7px;height:7px;border-radius:50%;background:#3a4d5b;flex:none}
+  .leg.lit .dot{background:var(--signal);box-shadow:0 0 8px var(--signal)}
+  .leg .lval{
+    font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:18px;
+    margin-top:7px;font-variant-numeric:tabular-nums;color:#dfeceb;
+  }
+  .leg.locked .lval{color:#6c7d86;font-size:12px;font-family:"IBM Plex Mono",monospace;
+    letter-spacing:.04em;display:flex;align-items:center;gap:5px}
+
+  /* ---------- intro ---------- */
+  .intro{
+    margin:22px 2px 6px;color:var(--ink-soft);font-size:15px;max-width:64ch;
+  }
+  .intro b{color:var(--ink);font-weight:600}
+
+  /* ---------- stage ---------- */
+  .stage{
+    background:var(--surface);border:1px solid var(--line);
+    border-radius:var(--radius);box-shadow:var(--shadow);
+    margin-top:18px;overflow:hidden;transition:opacity .35s ease,filter .35s ease;
+  }
+  .stage.gated{opacity:.5;filter:saturate(.5)}
+  .stage.gated .items{pointer-events:none}
+  .shead{
+    display:flex;align-items:center;gap:14px;padding:16px 20px;
+    border-bottom:1px solid var(--line-soft);
+  }
+  .snum{
+    font-family:"IBM Plex Mono",monospace;font-weight:600;font-size:13px;
+    color:var(--signal-dim);background:#E6F4F4;border:1px solid #C9E8E8;
+    width:38px;height:38px;border-radius:9px;display:grid;place-items:center;flex:none;
+  }
+  .stitleblock{flex:1;min-width:0}
+  .stitle{font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:18px;letter-spacing:-.01em}
+  .stag{
+    font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.12em;
+    text-transform:uppercase;color:var(--ink-faint);margin-top:3px;
+  }
+  .sprog{
+    font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--ink-faint);
+    font-variant-numeric:tabular-nums;flex:none;
+  }
+  .stage.now .snum{color:#fff;background:var(--signal);border-color:var(--signal)}
+
+  /* items */
+  .items{list-style:none;margin:0;padding:6px 8px 10px}
+  .item{
+    display:flex;gap:13px;padding:13px 12px;border-radius:10px;
+    align-items:flex-start;transition:background .15s;cursor:pointer;
+  }
+  .item:hover{background:#F4F8F9}
+  .item + .item{border-top:1px solid var(--line-soft)}
+  .box{
+    width:21px;height:21px;border-radius:6px;border:2px solid #B9C6CF;
+    flex:none;margin-top:1px;display:grid;place-items:center;
+    background:#fff;transition:.16s;
+  }
+  .box svg{width:13px;height:13px;opacity:0;transform:scale(.5);transition:.16s}
+  .item.done .box{background:var(--done);border-color:var(--done)}
+  .item.done .box svg{opacity:1;transform:scale(1)}
+  .body{flex:1;min-width:0}
+  .itext{font-size:15px;color:var(--ink);font-weight:500}
+  .item.done .itext{color:var(--ink-faint);text-decoration:line-through;text-decoration-color:#C3CED5}
+  .inote{font-size:13.5px;color:var(--ink-soft);margin-top:5px;line-height:1.5}
+  .inote em{color:var(--ink);font-style:normal;font-weight:500}
+  .codes{display:flex;flex-wrap:wrap;gap:6px;margin-top:9px}
+  .code{
+    font-family:"IBM Plex Mono",monospace;font-size:11.5px;font-weight:500;
+    background:#EEF3F6;border:1px solid var(--line);color:#33485a;
+    padding:3px 8px;border-radius:6px;
+  }
+  .item.risk .box{border-color:#E5A99D}
+  .item.risk.done .box{background:var(--risk);border-color:var(--risk)}
+  .flag{
+    display:inline-block;font-family:"IBM Plex Mono",monospace;font-size:9.5px;
+    letter-spacing:.12em;text-transform:uppercase;color:var(--risk);
+    border:1px solid #EBC3BA;background:#FBEDEA;border-radius:5px;padding:1px 6px;
+    margin-left:8px;vertical-align:middle;
+  }
+  .flag.gateflag{color:var(--gate);border-color:#EDD6AC;background:#FBF3E3}
+
+  /* ---------- gate divider ---------- */
+  .gate{
+    margin:24px 6px;display:flex;align-items:center;gap:16px;
+  }
+  .gate .grail{flex:1;height:2px;border-radius:2px;
+    background:repeating-linear-gradient(90deg,var(--gate) 0 9px,transparent 9px 16px)}
+  .gatebadge{
+    display:flex;align-items:center;gap:9px;background:#FBF3E3;border:1px solid #EDD6AC;
+    color:#9A6A1C;border-radius:999px;padding:8px 16px;font-weight:600;font-size:13.5px;
+    font-family:"Space Grotesk",sans-serif;transition:.3s;
+  }
+  .gatebadge .lockicon{width:15px;height:15px}
+  .gate.open .gatebadge{background:#E6F4ED;border-color:#BCE0CC;color:var(--done)}
+  .gate.open .grail{background:repeating-linear-gradient(90deg,var(--done) 0 9px,transparent 9px 16px)}
+  .gatebadge small{font-family:"IBM Plex Mono",monospace;font-weight:400;font-size:10px;
+    letter-spacing:.1em;text-transform:uppercase;opacity:.85;margin-left:2px}
+
+  /* ---------- reference panels ---------- */
+  .panel{
+    margin-top:18px;border:1px solid var(--line);border-radius:var(--radius);
+    background:var(--surface);box-shadow:var(--shadow);overflow:hidden;
+  }
+  .panel > summary{
+    list-style:none;cursor:pointer;padding:15px 20px;display:flex;align-items:center;gap:11px;
+    font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:15px;
+  }
+  .panel > summary::-webkit-details-marker{display:none}
+  .panel > summary .chev{margin-left:auto;color:var(--ink-faint);transition:.2s}
+  .panel[open] > summary .chev{transform:rotate(90deg)}
+  .panel .pbody{padding:4px 20px 18px}
+  .ptag{font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.14em;
+    text-transform:uppercase;padding:2px 7px;border-radius:5px;font-weight:500}
+  .ptag.avoid{color:var(--risk);background:#FBEDEA;border:1px solid #EBC3BA}
+  .ptag.prefer{color:var(--done);background:#E6F4ED;border:1px solid #BCE0CC}
+  .wordrow{display:flex;flex-wrap:wrap;gap:7px;margin:10px 0 4px}
+  .word{font-family:"IBM Plex Mono",monospace;font-size:12px;background:#FBEDEA;
+    border:1px solid #F0D2CB;color:#A8412F;padding:3px 9px;border-radius:6px}
+  .sample{
+    background:#F2F8F5;border-left:3px solid var(--done);border-radius:0 8px 8px 0;
+    padding:12px 14px;margin-top:12px;font-size:13.5px;color:#2c4a3c;font-style:italic;
+  }
+  .reflist{margin:6px 0 0;padding:0;list-style:none}
+  .reflist li{display:flex;gap:11px;padding:9px 0;border-top:1px solid var(--line-soft);
+    font-size:14px;color:var(--ink-soft)}
+  .reflist li:first-child{border-top:none}
+  .reflist .tick{flex:none;width:6px;height:6px;border-radius:50%;background:var(--gate);margin-top:8px}
+  .panel.riskpanel .reflist .tick{background:var(--risk)}
+  .reflist b{color:var(--ink);font-weight:600}
+
+  /* notes */
+  .notes{margin-top:18px}
+  .notes label{font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--ink-faint);display:block;margin-bottom:8px}
+  .notes textarea{
+    width:100%;min-height:96px;resize:vertical;border:1px solid var(--line);
+    border-radius:12px;padding:14px 16px;font-family:"IBM Plex Sans",sans-serif;font-size:14px;
+    color:var(--ink);background:var(--surface);box-shadow:var(--shadow);line-height:1.55;
+  }
+  .notes textarea:focus{outline:2px solid var(--signal);outline-offset:1px;border-color:transparent}
+
+  /* footer / controls */
+  .footer{margin-top:26px;display:flex;justify-content:space-between;align-items:center;
+    gap:16px;flex-wrap:wrap}
+  .disclaimer{font-size:12px;color:var(--ink-faint);max-width:62ch;line-height:1.5}
+  .reset{
+    font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.06em;
+    background:none;border:1px solid var(--line);color:var(--ink-soft);
+    padding:8px 14px;border-radius:8px;cursor:pointer;transition:.15s;
+  }
+  .reset:hover{border-color:var(--risk);color:var(--risk)}
+
+  /* saved pill */
+  .saved{
+    position:fixed;bottom:18px;left:50%;transform:translate(-50%,16px);
+    background:var(--panel);color:#dff3f3;font-family:"IBM Plex Mono",monospace;
+    font-size:11px;letter-spacing:.08em;padding:8px 16px;border-radius:999px;
+    opacity:0;transition:.25s;pointer-events:none;border:1px solid #233643;z-index:5;
+  }
+  .saved.show{opacity:1;transform:translate(-50%,0)}
+
+  @media (max-width:640px){
+    .wrap{padding:18px 14px 70px}
+    .readout{text-align:left}
+    .readout .pct{font-size:38px}
+    .brand h1{font-size:24px}
+    .legs{grid-template-columns:1fr}
+  }
+  @media (prefers-reduced-motion:reduce){
+    .trace .sweep{animation:none;display:none}
+    *{transition:none!important}
+  }
+  :focus-visible{outline:2px solid var(--signal);outline-offset:2px;border-radius:6px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="monitor">
+    <div class="topline">
+      <div class="brand">
+        <p class="kicker">Reimbursement Readiness · v1</p>
+        <h1>SonoHL
+          <small>AI acoustic cardiopulmonary monitoring — the sequenced path from website copy to durable payment.</small>
+        </h1>
+      </div>
+      <div class="readout">
+        <div class="pct" id="pct">0%</div>
+        <div class="pctlabel" id="pctcount">0 / 0 tasks done</div>
+      </div>
+    </div>
+
+    <div class="trace" aria-hidden="true">
+      <svg viewBox="0 0 860 42" preserveAspectRatio="none">
+        <line class="grid" x1="0" y1="21" x2="860" y2="21"/>
+        <path class="line" d="M0,21 L150,21 L165,21 L172,8 L180,34 L188,21 L300,21 L315,21 L322,11 L330,31 L338,21 L470,21 L485,21 L492,9 L500,33 L508,21 L640,21 L655,21 L662,12 L670,30 L678,21 L820,21 L860,21"/>
+        <path class="sweep" d="M0,21 L150,21 L165,21 L172,8 L180,34 L188,21 L300,21 L315,21 L322,11 L330,31 L338,21 L470,21 L485,21 L492,9 L500,33 L508,21 L640,21 L655,21 L662,12 L670,30 L678,21 L820,21 L860,21"/>
+      </svg>
+    </div>
+
+    <div class="legs" id="legs">
+      <div class="leg" data-leg="coding"><div class="lname"><span class="dot"></span>Coding</div><div class="lval">—</div></div>
+      <div class="leg" data-leg="coverage"><div class="lname"><span class="dot"></span>Coverage</div><div class="lval">—</div></div>
+      <div class="leg" data-leg="payment"><div class="lname"><span class="dot"></span>Payment</div><div class="lval">—</div></div>
+    </div>
+  </header>
+
+  <p class="intro">Reimbursement is three separate battles — <b>coverage</b>, <b>coding</b>, and <b>payment</b> — and none can start until FDA clearance exists. Work top to bottom. The amber gate below unlocks once you log the clearance letter and IFU.</p>
+
+  <div id="stages"></div>
+
+  <details class="panel">
+    <summary><span class="ptag avoid">Copy</span> Website language: what to cut, what to use<svg class="chev" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+    <div class="pbody">
+      <p style="font-size:13.5px;color:var(--ink-soft);margin:4px 0 0">FDA reads your website, brochures, and social posts as <em style="color:var(--ink);font-style:normal;font-weight:600">labeling</em>. Pre-clearance, strip every term below.</p>
+      <div class="wordrow">
+        <span class="word">diagnostic</span><span class="word">diagnoses</span><span class="word">detects disease</span>
+        <span class="word">accurate</span><span class="word">proven</span><span class="word">safe and effective</span>
+        <span class="word">FDA-approved</span><span class="word">FDA-cleared</span><span class="word">available now</span>
+        <span class="word">pricing</span><span class="word">sensitivity / specificity claims</span>
+      </div>
+      <div style="margin-top:14px"><span class="ptag prefer">Use instead</span></div>
+      <div class="sample">"SonoHL is an investigational multi-channel acoustic sensing platform in clinical development. It is not cleared or approved by the FDA and is not available for sale. Limited by Federal law to investigational use."</div>
+      <p style="font-size:13px;color:var(--ink-soft);margin:12px 0 0">Post-clearance, mirror the cleared intended-use wording exactly and adopt SENSORA-style limiting language: support for the physician, <em style="color:var(--ink);font-style:normal;font-weight:500">not a sole means of diagnosis</em>, significant only with physician over-read.</p>
+    </div>
+  </details>
+
+  <details class="panel">
+    <summary><span class="ptag" style="color:var(--gate);background:#FBF3E3;border:1px solid #EDD6AC">Watch</span> Moving targets — monitor, don't depend on<svg class="chev" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+    <div class="pbody">
+      <ul class="reflist">
+        <li><span class="tick"></span><span><b>TCET</b> is paused for new candidates as CMS stands up the RAPID pathway.</span></li>
+        <li><span class="tick"></span><span><b>RAPID</b> (announced Apr 23, 2026) is new and largely unproven — promising for Breakthrough Devices, but unbattle-tested.</span></li>
+        <li><span class="tick"></span><span>The alternative <b>NTAP</b> and OPPS pass-through breakthrough tracks are <b>proposed for repeal effective FY2028</b> (FY2027 IPPS proposed rule).</span></li>
+        <li><span class="tick"></span><span>The <b>Health Tech Investment Act</b> (S.1399) and the AMA "CMAA" concept are not law/policy — don't build a strategy that needs them.</span></li>
+      </ul>
+    </div>
+  </details>
+
+  <details class="panel riskpanel">
+    <summary><span class="ptag avoid">Risk</span> Gating risks to keep in view<svg class="chev" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+    <div class="pbody">
+      <ul class="reflist">
+        <li><span class="tick"></span><span><b>No FDA clearance = no reimbursement</b>, plus real promotional-liability exposure. This is the dominant present risk.</span></li>
+        <li><span class="tick"></span><span>RPM/RTM eligibility hinges on <b>FDA-defined medical-device status + automatic data capture</b> — design and document to this now.</span></li>
+        <li><span class="tick"></span><span>A <b>Category III code carries no guaranteed payment</b>; CMS's SaaS/AI methodology is unfinished.</span></li>
+        <li><span class="tick"></span><span><b>Intended-use drift</b> toward "diagnostic" or "autonomous" raises the evidence bar and creates misbranding risk. Stay on screening / decision-support, assistive-to-augmentative AI.</span></li>
+      </ul>
+    </div>
+  </details>
+
+  <div class="notes">
+    <label for="notes">Working notes — counsel, dates, where you left off</label>
+    <textarea id="notes" placeholder="e.g. Regulatory counsel review booked for…  ·  Category III pre-app call…  ·  specialty society contact…"></textarea>
+  </div>
+
+  <div class="footer">
+    <p class="disclaimer">Informational, not legal advice. Engage FDA regulatory counsel and a reimbursement strategist before finalizing intended-use statements, website copy, or code applications.</p>
+    <button class="reset" id="reset">Reset checklist</button>
+  </div>
+</div>
+
+<div class="saved" id="saved">Saved</div>
+
+<script>
+const DATA = [
+  {
+    n:"00", cls:"now", title:"Do now — pre-clearance", tag:"Highest priority · no FDA gate needed",
+    items:[
+      {id:"a0", text:"Audit every page of the site and all collateral as labeling.",
+        note:"FDA treats websites, brochures, social posts — even reposts of third-party content — as labeling (Kordel v. United States; 21 CFR 801.4). Remove any claim of accuracy, efficacy, safety, diagnostic capability, FDA status, availability, or pricing."},
+      {id:"a1", text:"Strip the forbidden terms from all copy.", kind:"risk", flag:"Compliance",
+        note:"See the <em>Website language</em> panel below for the full list and the disclaimer to use in their place."},
+      {id:"a2", text:"Add the investigational disclaimer wherever the device is described.",
+        note:"\u201cInvestigational device. Limited by Federal law to investigational use. Not available for sale.\u201d Study materials must carry the CAUTION investigational-use legend."},
+      {id:"a3", text:"Draft a candidate intended-use statement: clinician decision-support / screening / longitudinal monitoring, assistive-to-augmentative AI with physician interpretation and report.",
+        note:"Model the limiting language on Eko SENSORA / ELEFT. <em>Avoid any \u201cautonomous\u201d framing</em> — it raises the regulatory and evidence burden."},
+      {id:"a4", text:"Have FDA regulatory counsel review the intended-use statement and the scrubbed copy."},
+      {id:"a5", text:"Route any efficacy-adjacent messaging only through FDA-sanctioned channels.",
+        note:"Factual scientific exchange; truthful payor-budgeting communications (FDA June 2018 guidance / AMCP PIE); investor materials on a separately designated part of the site. No orders, no pricing, no \u201cavailable for sale.\u201d"}
+    ]
+  },
+  {
+    n:"01", cls:"", title:"FDA clearance", tag:"The gate that unlocks everything below",
+    items:[
+      {id:"b0", text:"Choose the clearance route for a Class II clinician decision-support tool (510(k) or De Novo), following the Eko model."},
+      {id:"b1", text:"Evaluate pursuing FDA Breakthrough Device designation.",
+        note:"Unlocks the RAPID coverage pathway and NTAP eligibility."},
+      {id:"b2", text:"Confirm the cleared intended use supports the two RPM gating facts.",
+        note:"\u201cMedical device as defined by the FDA\u201d <em>and</em> automatic physiologic data transmission — both must appear in the cleared indication."},
+      {id:"b3", gate:true, flag:"Gate", text:"Obtain the clearance letter + IFU — with wording you can copy verbatim into marketing and code applications.",
+        note:"Checking this opens the gate and activates the downstream stages."}
+    ]
+  },
+  {
+    n:"02", cls:"", title:"Clinical evidence", tag:"Two endpoints, not one", gated:true,
+    items:[
+      {id:"c0", text:"Design studies to report both endpoint types.",
+        note:"Sensitivity/specificity vs. a reference standard <em>and</em> outcomes/economics: avoided admissions and ED visits, referral efficiency, length-of-stay. FDA buys accuracy; payers buy outcomes + economics."},
+      {id:"c1", text:"Start the AMCP-format payer dossier early (v4.1 / 5.0)."},
+      {id:"c2", text:"Use pre-approval information exchange (PIE) to engage payers before clearance."}
+    ]
+  },
+  {
+    n:"03", cls:"", title:"Coding", tag:"Battle: Coding · map existing codes first", gated:true, leg:"coding",
+    items:[
+      {id:"d0", leg:"coding", text:"Map to existing Remote Physiologic Monitoring codes first — the fastest route to revenue.",
+        codes:["RPM 99453","99454","99457","99458","99445","99470"],
+        note:"Requires FDA-defined medical-device status + automatic data capture. The 16-day rule applies to the device-supply codes."},
+      {id:"d1", leg:"coding", text:"Consider Remote Therapeutic Monitoring as an adjacent fit.",
+        codes:["RTM 98976","98985","98979"],
+        note:"Allows some patient self-reported data — useful for therapy-response framings."},
+      {id:"d2", leg:"coding", text:"File a Category III CPT for the novel AI acoustic-analysis service.",
+        codes:["model: 0962T"],
+        note:"Low evidence bar, ~6-month release cycles. Expect a required physician over-read, consistent with an assistive/augmentative classification."},
+      {id:"d3", leg:"coding", text:"Engage a specialty-society sponsor for the code application."},
+      {id:"d4", leg:"coding", text:"Track the bar to graduate to a Category I code: widespread US use + peer-reviewed literature.",
+        codes:["model: 75577"],
+        note:"The AI-QCT \u2192 75577 graduation precedent. Roughly a 12\u201324 month cycle."}
+    ]
+  },
+  {
+    n:"04", cls:"", title:"Coverage & payment", tag:"Battles: Coverage + Payment", gated:true,
+    items:[
+      {id:"e0", leg:"coverage", text:"Pursue commercial medical policies and Medicare LCDs.",
+        note:"An LCD takes ~365 days to finalize; commercial payers often follow Medicare."},
+      {id:"e1", leg:"coverage", text:"If Breakthrough-designated, pursue NCD / RAPID coverage.",
+        note:"RAPID can grant national coverage ~2 months after authorization; TCET is paused for new candidates."},
+      {id:"e2", leg:"payment", text:"Pursue a New Technology APC / transitional pass-through for the hospital outpatient setting.",
+        codes:["model: APC 5734"],
+        note:"The exact route SENSORA took: 0962T \u2192 APC 5734."},
+      {id:"e3", leg:"payment", text:"Monitor and comment on CMS SaaS-payment rulemaking and the Health Tech Investment Act (S.1399).",
+        note:"No finalized AI/SaaS payment methodology yet, and the Act is not law — track it, don't depend on it."}
+    ]
+  }
+];
+
+const KEY = "sonohl-checklist-v1";
+const checkSVG = '<svg viewBox="0 0 16 16" fill="none"><path d="M3.5 8.5l3 3 6-7" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+let state = { checked:{}, notes:"" };
+
+/* ---- render ---- */
+const stagesEl = document.getElementById("stages");
+DATA.forEach((st, i) => {
+  const stage = document.createElement("section");
+  stage.className = "stage " + (st.cls||"") + (st.gated ? " gated" : "");
+  stage.dataset.stage = st.n;
+  stage.innerHTML = `
+    <div class="shead">
+      <div class="snum">${st.n}</div>
+      <div class="stitleblock">
+        <div class="stitle">${st.title}</div>
+        <div class="stag">${st.tag}</div>
+      </div>
+      <div class="sprog" data-prog></div>
+    </div>
+    <ul class="items"></ul>`;
+  const ul = stage.querySelector(".items");
+  st.items.forEach(it => {
+    const li = document.createElement("li");
+    li.className = "item" + (it.kind==="risk"?" risk":"");
+    li.dataset.id = it.id;
+    let flag = "";
+    if(it.flag) flag = `<span class="flag ${it.gate?'gateflag':''}">${it.flag}</span>`;
+    const codes = it.codes ? `<div class="codes">${it.codes.map(c=>`<span class="code">${c}</span>`).join("")}</div>` : "";
+    const note = it.note ? `<div class="inote">${it.note}</div>` : "";
+    li.innerHTML = `
+      <div class="box">${checkSVG}</div>
+      <div class="body">
+        <div class="itext">${it.text}${flag}</div>
+        ${note}${codes}
+      </div>`;
+    li.addEventListener("click", () => toggle(it.id));
+    ul.appendChild(li);
+  });
+  stagesEl.appendChild(stage);
+
+  // insert gate divider after stage 01
+  if(st.n === "01"){
+    const g = document.createElement("div");
+    g.className = "gate"; g.id = "gateDivider";
+    g.innerHTML = `
+      <div class="grail"></div>
+      <div class="gatebadge">
+        <svg class="lockicon" viewBox="0 0 16 16" fill="none"><rect x="3" y="7" width="10" height="7" rx="1.5" stroke="currentColor" stroke-width="1.5"/><path d="M5 7V5a3 3 0 0 1 6 0v2" stroke="currentColor" stroke-width="1.5"/></svg>
+        <span id="gateLabel">FDA clearance required</span><small id="gateStatus">locked</small>
+      </div>
+      <div class="grail"></div>`;
+    stagesEl.appendChild(g);
+  }
+});
+
+/* ---- logic ---- */
+function toggle(id){
+  state.checked[id] = !state.checked[id];
+  render(); save();
+}
+
+function render(){
+  const allItems = DATA.flatMap(s=>s.items);
+  const total = allItems.length;
+  const done = allItems.filter(it=>state.checked[it.id]).length;
+  const pct = total ? Math.round(done/total*100) : 0;
+  document.getElementById("pct").textContent = pct + "%";
+  document.getElementById("pctcount").textContent = `${done} / ${total} tasks done`;
+
+  // items + per-stage progress
+  DATA.forEach(st=>{
+    const stageEl = document.querySelector(`.stage[data-stage="${st.n}"]`);
+    let d=0;
+    st.items.forEach(it=>{
+      const li = stageEl.querySelector(`.item[data-id="${it.id}"]`);
+      const on = !!state.checked[it.id];
+      li.classList.toggle("done", on);
+      li.querySelector(".box").setAttribute("role","checkbox");
+      li.querySelector(".box").setAttribute("aria-checked", on);
+      if(on) d++;
+    });
+    stageEl.querySelector("[data-prog]").textContent = `${d}/${st.items.length}`;
+  });
+
+  // gate
+  const gateOpen = !!state.checked["b3"];
+  const gd = document.getElementById("gateDivider");
+  gd.classList.toggle("open", gateOpen);
+  document.getElementById("gateLabel").textContent = gateOpen ? "FDA clearance logged" : "FDA clearance required";
+  document.getElementById("gateStatus").textContent = gateOpen ? "open" : "locked";
+  document.querySelectorAll(".stage").forEach(s=>{
+    if(["02","03","04"].includes(s.dataset.stage)) s.classList.toggle("gated", !gateOpen);
+  });
+
+  // legs (three-legged stool)
+  const legGroups = { coding:[], coverage:[], payment:[] };
+  DATA.forEach(s=>s.items.forEach(it=>{ if(it.leg) legGroups[it.leg].push(it.id); }));
+  document.querySelectorAll(".leg").forEach(el=>{
+    const k = el.dataset.leg, ids = legGroups[k];
+    const val = el.querySelector(".lval");
+    if(!gateOpen){
+      el.classList.add("locked"); el.classList.remove("lit");
+      val.innerHTML = '<svg width="11" height="11" viewBox="0 0 16 16" fill="none"><rect x="3" y="7" width="10" height="7" rx="1.5" stroke="currentColor" stroke-width="1.6"/><path d="M5 7V5a3 3 0 0 1 6 0v2" stroke="currentColor" stroke-width="1.6"/></svg> FDA gate';
+    } else {
+      el.classList.remove("locked");
+      const dn = ids.filter(id=>state.checked[id]).length;
+      const p = ids.length ? Math.round(dn/ids.length*100) : 0;
+      val.textContent = p + "%";
+      el.classList.toggle("lit", p>0);
+    }
+  });
+}
+
+/* ---- persistence ---- */
+let saveTimer, savePill = document.getElementById("saved");
+function save(){
+  clearTimeout(saveTimer);
+  saveTimer = setTimeout(async ()=>{
+    try{
+      if(window.storage){
+        await window.storage.set(KEY, JSON.stringify(state), false);
+        savePill.classList.add("show");
+        setTimeout(()=>savePill.classList.remove("show"), 1100);
+      }
+    }catch(e){ /* storage unavailable — stay in memory */ }
+  }, 350);
+}
+
+async function load(){
+  try{
+    if(window.storage){
+      const r = await window.storage.get(KEY, false);
+      if(r && r.value){ state = JSON.parse(r.value); }
+    }
+  }catch(e){ /* no saved state yet */ }
+  if(!state.checked) state.checked = {};
+  document.getElementById("notes").value = state.notes || "";
+  render();
+}
+
+document.getElementById("notes").addEventListener("input", e=>{
+  state.notes = e.target.value; save();
+});
+
+document.getElementById("reset").addEventListener("click", ()=>{
+  if(confirm("Clear all checkmarks and notes? This can't be undone.")){
+    state = { checked:{}, notes:"" };
+    document.getElementById("notes").value = "";
+    render(); save();
+  }
+});
+
+load();
+</script>
+</body>
+</html>
