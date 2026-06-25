@@ -1,0 +1,178 @@
+SONOHL WEBSITE COPY — LLM AUDIT EXPORT
+Source: sonohl.html, commit 486f22c plus current local copy state
+Generated: June 23, 2026
+
+AUDIT CONTEXT
+This export contains the latest visible website copy organized by page. CSS, JavaScript, Base64 image data, and decorative implementation details are excluded. Image alternative text is included and labeled.
+
+
+========================================================================
+HOME
+========================================================================
+[LABEL] Investigational Acoustic-Sensing Platform
+[H1] Multi-Point Heart and Lung Sound Capture
+SonoHL is developing a wearable platform intended to capture heart and lung sounds from multiple predetermined positions and organize those recordings for clinician review. The exact product configuration, intended use, clinical output, and regulatory pathway remain under development. The platform is investigational and is not available for commercial sale.
+
+========================================================================
+PROBLEM
+========================================================================
+[LABEL] The Problem
+[H2] Acoustic examination depends on acquisition and interpretation.
+Examiner experience, placement consistency, recording conditions, ambient noise, and access to specialist review can vary across care settings. These factors support investigation of more standardized acoustic capture and shareable recordings.
+[LABEL] Acquisition
+[LABEL] Interpretation
+[LABEL] Workflow
+[LABEL] Remote feasibility
+[IMAGE ALT TEXT] SonoHL development vest prototype photo
+[LABEL] Development considerations
+[EMPHASIS] Acoustic capture and review can vary across settings.
+[EMPHASIS] Acquisition consistency
+[SUPPORTING TEXT] Placement and recording conditions can affect the signals collected.
+[EMPHASIS] Interpretation access
+[SUPPORTING TEXT] Some settings may have limited access to cardiopulmonary expertise.
+[EMPHASIS] Workflow burden
+[SUPPORTING TEXT] Testing, consultation, travel, and follow-up may create operational burdens.
+[EMPHASIS] Remote-care feasibility
+[SUPPORTING TEXT] Remote use requires validated setup, transmission, privacy, review, and escalation workflows.
+[LABEL] Development hypothesis
+[EMPHASIS] SonoHL is investigating whether consistent multi-point recordings can be stored, shared, compared, and reviewed by clinicians.
+
+========================================================================
+PROPOSED DEVELOPMENT USES
+========================================================================
+[LABEL] Proposed Development Uses
+[H2] Acoustic assessment and remote review concepts.
+These proposed workflows are development hypotheses. They are not approved intended uses, cleared indications, commercial claims, or confirmed remote-monitoring services.
+[H3] Point-of-care acoustic assessment support
+In a proposed workflow, an intended user would apply the vest, obtain recordings under a defined protocol, confirm recording quality, and make the acoustic information available for clinician review.
+[LABEL] Apply under a defined protocol
+[LABEL] Confirm recording quality
+[LABEL] Present information for human review
+[H3] Repeat recording and remote review
+The platform may be evaluated for repeat recording in supervised home, clinic, rural-health, or nursing-station settings. Remote use is not represented as ready or validated.
+[LABEL] Validate operator training and fit
+[LABEL] Establish secure data transfer
+[LABEL] Define review and escalation workflows
+
+========================================================================
+PLATFORM CONCEPT
+========================================================================
+[LABEL] Platform Concept
+[H2] A wearable concept for organized acoustic capture and review.
+SonoHL is developing a sensor vest, supporting software, and a clinician-facing review environment for acquiring heart and lung sounds from predetermined positions and organizing recordings for human review.
+[H3] Predetermined sensor positions
+The vest concept positions acoustic sensors across multiple areas of the chest and back. Repeatability and placement tolerance require formal verification and human-factors validation.
+[H3] Organized recordings
+The proposed software environment would store and organize recordings and associated information for review by an intended clinician or other qualified user.
+[H3] Shareable acoustic information
+Repeat recordings and remote sharing may be evaluated as future workflows after setup, transmission, privacy, cybersecurity, review, and escalation processes are validated.
+[H3] Being developed as a clinician-support platform.
+SonoHL is not represented as replacing medical judgment, independently diagnosing disease, or establishing treatment decisions. Its first intended use and clinical output have not yet been approved.
+[LABEL] Investigational
+[LABEL] Human review
+[LABEL] Evidence development
+
+========================================================================
+TECHNOLOGY
+========================================================================
+[LABEL] Technology
+[H2] Capture, quality control, processing, and review.
+The development workflow is to acquire time-stamped acoustic signals from the active sensor configuration, apply defined quality checks and processing steps, and present recordings and associated information for human review.
+[LABEL] Core system
+[H3] A vest-based acoustic-sensing platform in development.
+The system concept combines wearable acoustic acquisition, supporting software, and a clinician-facing review environment. Final specifications, outputs, and user requirements remain under development.
+[LABEL] Vest system
+[EMPHASIS] Multiple acoustic positions, defined processing, and human review.
+Illustrative layout
+[EMPHASIS] Capture
+[LABEL] Acquire time-stamped acoustic signals under a defined recording protocol.
+[EMPHASIS] Quality control
+[LABEL] Apply specified checks and processing steps to identify usable and unusable recordings.
+[EMPHASIS] Review
+[LABEL] Present defined recordings and associated information to a qualified human reviewer.
+Illustrative development concept. Final channel count and sensor positions require controlled approval.
+[EMPHASIS] Heart sounds
+[LABEL] Multi-point acoustic acquisition is under technical and clinical evaluation.
+[EMPHASIS] Lung sounds
+[LABEL] Proposed pulmonary applications require separately defined evidence and intended use.
+[EMPHASIS] Repeat recordings
+[LABEL] Longitudinal comparison remains a potential future workflow for evaluation.
+
+========================================================================
+PROPOSED WORKFLOW
+========================================================================
+[LABEL] Proposed Workflow
+[H2] A proposed workflow from preparation to human review
+This preliminary workflow is derived from the development concept. Each step requires controlled specifications, intended-user definition, and human-factors validation.
+[IMAGE ALT TEXT] Illustration of a person wearing a SonoHL development vest concept
+[H3] Prepare and fit
+Identify the patient and device, apply the appropriate vest or accessory, and confirm placement under a defined protocol.
+[IMAGE ALT TEXT] Illustration of a proposed vest fitting and recording workflow
+[H3] Acquire and transfer
+Obtain recordings under specified conditions, monitor signal quality, and transfer or store the data using defined controls.
+[IMAGE ALT TEXT] Illustration of a qualified reviewer viewing acoustic information
+[H3] Qualified human review
+Make the defined acoustic information available to the intended reviewer and document follow-up only within the authorized clinical role.
+[EMPHASIS] Controlled setup
+[LABEL] Sizing, placement, cleaning, and use-error controls remain to be defined.
+[EMPHASIS] Recording quality
+[LABEL] Acquisition criteria, thresholds, and failed-recording rules require verification.
+[EMPHASIS] Human interpretation
+[LABEL] Reviewer qualifications, report content, and escalation requirements remain under development.
+
+========================================================================
+EVIDENCE DEVELOPMENT
+========================================================================
+[LABEL] Evidence Development
+[H2] Technical, clinical, human-factors, and workflow evidence is required.
+The current controlled development status was not supplied in the audited source. External statements about completed testing, active validation, trial enrollment, or deployment require verified records and approval.
+[LABEL] Evidence framework
+[H3] Define and validate the first intended use
+The candidate intended use, target population, reference standard, product version, endpoints, and statistical assumptions must be approved before performance claims are made.
+[EMPHASIS] Technical validation
+[LABEL] Signal integrity, synchronization, quality metrics, robustness, and failure detection
+[EMPHASIS] Clinical validity
+[LABEL] Prespecified comparison with an appropriate reference standard
+[EMPHASIS] Human factors
+[LABEL] Fitting, placement, training, accessibility, use errors, and failure communication
+[LABEL] Required controls
+[H3] Evidence before external claims
+No performance threshold or result is stated. Claims must be linked to controlled specifications, approved protocols, verification reports, clinical evidence, and applicable regulatory authorization.
+[SUPPORTING TEXT] Status required
+[EMPHASIS] Prototype testing
+[LABEL] Controlled design history, test reports, versions, acceptance criteria, and approval are required.
+[EMPHASIS] Clinical validation
+[LABEL] Protocol, ethics status, sites, enrollment, endpoints, reference standards, and current dates are required.
+[SUPPORTING TEXT] Decision required
+[EMPHASIS] Pilot deployment
+[LABEL] An approved protocol, intended setting and users, safety monitoring, and success criteria are required.
+[EMPHASIS] Regulatory pathway
+[LABEL] Intended use, classification analysis, risk controls, regulatory interactions, and schedule remain to be defined.
+
+========================================================================
+TEAM
+========================================================================
+[LABEL] The Team
+[H2] Listed product-development team
+Titles, affiliations, roles, and authorization for external publication require confirmation before public use.
+[IMAGE ALT TEXT] Dr. Nadia Giannetti
+[H3] Dr. Nadia Giannetti
+[IMAGE ALT TEXT] Matthew Behr
+[H3] Matthew Behr, P.Eng
+[IMAGE ALT TEXT] Mitchel Benovoy
+[H3] Mitchel Benovoy PhD
+[H3] Rachel Manz
+[H3] Alexandre Hadji-Thomas
+[H3] Julia Deist
+[H3] Ines Tazi Riffi
+[H3] Natalie Gendron
+[H3] Aaron Beckerleg
+
+========================================================================
+PARTNERSHIPS
+========================================================================
+[LABEL] Get Involved
+[H2] Collaborate on controlled product and evidence development.
+Potential partnerships may support product verification, human-factors work, clinical research, reference-standard comparison, data governance, and evaluation in intended settings. SonoHL is investigational, is not available for commercial sale, and must be described by distinguishing proposed objectives from demonstrated results.
+[UI LABEL] Contact Our Team
+[UI LABEL] View Evidence Plan

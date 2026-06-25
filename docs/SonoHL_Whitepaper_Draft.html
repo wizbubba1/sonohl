@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>SonoHL Product Whitepaper — Working Draft</title>
+  <style>
+    @page { margin: 0.8in; }
+    body {
+      max-width: 7.1in;
+      margin: 0 auto;
+      color: #17324a;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 11pt;
+      line-height: 1.48;
+    }
+    h1, h2, h3 { color: #102a43; page-break-after: avoid; }
+    h1 { font-size: 27pt; margin: 0 0 10pt; }
+    h2 {
+      margin: 25pt 0 9pt;
+      padding-bottom: 5pt;
+      border-bottom: 2px solid #00a6d6;
+      font-size: 17pt;
+    }
+    h3 { margin: 17pt 0 5pt; font-size: 13pt; }
+    p { margin: 0 0 9pt; }
+    ul, ol { margin: 5pt 0 11pt 22pt; }
+    li { margin-bottom: 4pt; }
+    table { width: 100%; margin: 10pt 0 16pt; border-collapse: collapse; }
+    th, td { padding: 7pt; border: 1px solid #afc9d5; vertical-align: top; }
+    th { color: #102a43; background: #e6f7fb; text-align: left; }
+    .cover {
+      min-height: 8.5in;
+      padding-top: 1.35in;
+      page-break-after: always;
+    }
+    .eyebrow {
+      color: #087fa3;
+      font-size: 10pt;
+      font-weight: bold;
+      letter-spacing: 1.4px;
+      text-transform: uppercase;
+    }
+    .subtitle { max-width: 5.8in; color: #4a6f8d; font-size: 17pt; line-height: 1.35; }
+    .meta { margin-top: 1.1in; color: #4a6f8d; }
+    .notice {
+      margin: 17pt 0;
+      padding: 12pt 14pt;
+      border-left: 4px solid #00a6d6;
+      background: #eef9fc;
+    }
+    .warning {
+      border-left-color: #d28b00;
+      background: #fff8e8;
+    }
+    .page-break { page-break-before: always; }
+    .small { color: #4a6f8d; font-size: 9.5pt; }
+  </style>
+</head>
+<body>
+  <section class="cover">
+    <p class="eyebrow">Working product whitepaper</p>
+    <h1>SonoHL</h1>
+    <p class="subtitle">A wearable acoustic platform for cardiopulmonary screening, diagnostics, and remote monitoring</p>
+    <div class="meta">
+      <p><strong>Document status:</strong> Source-derived working draft</p>
+      <p><strong>Prepared from:</strong> SonoHL website copy in <code>sonohl.html</code></p>
+      <p><strong>Date:</strong> June 22, 2026</p>
+      <p><strong>Organization:</strong> SonoHL Inc., part of the Vitruvius Innovation portfolio</p>
+    </div>
+  </section>
+
+  <p style="page-break-before: always;"><br></p>
+
+  <div class="notice warning">
+    <strong>Important document note.</strong> This draft was reconstructed from the SonoHL website and is intended as an editable foundation for a formal whitepaper. It is not a clinical, regulatory, or scientific submission. Statistics, performance statements, clinical claims, trial status, and regulatory language require confirmation and primary-source citations before external publication.
+  </div>
+
+  <h2>Executive Summary</h2>
+  <p>SonoHL is presented as an AI-powered, wearable cardiopulmonary auscultation platform designed to improve access to heart and lung assessment. The product concept combines a lightweight sensor vest, multi-point acoustic capture, signal processing, and clinician review. The website describes a 16-channel system, with 10 sensors positioned on the front of the vest and six on the back, that records heart sounds simultaneously and supports the collection of lung sounds from consistent chest positions.</p>
+  <p>The platform is intended to address a practical limitation of traditional auscultation: a stethoscope is widely available, but expert interpretation is not. In rural communities, remote clinics, homes, and nursing stations, patients may have limited access to cardiologists, pulmonologists, and respirologists. SonoHL aims to make acoustic assessment more objective, repeatable, shareable, and suitable for remote clinical review.</p>
+  <p>The proposed system follows a simple flow. Sensors capture heart and lung sounds from fixed positions. Software reduces noise, identifies or organizes the clearest recordings, and prepares acoustic information for review. Clinicians then use the recordings and associated dashboard information to support assessment, triage, referral, and longitudinal monitoring. The product is positioned as a clinical support tool rather than a replacement for clinicians.</p>
+  <p>SonoHL is described as moving from prototype testing into clinical validation. The stated development pathway includes comparison against clinical reference methods, pilot deployment with clinical partners, and eventual pursuit of a regulatory and commercialization pathway.</p>
+
+  <h2>1. The Clinical Access Problem</h2>
+  <h3>1.1 Auscultation depends on interpretation</h3>
+  <p>Traditional auscultation is fast, inexpensive, and embedded in routine care, but its usefulness depends heavily on the experience of the person listening. The SonoHL website summarizes this limitation as: “The stethoscope is everywhere. Expert interpretation is not.” A brief manual examination may vary based on the listener, the examination environment, sensor placement, ambient noise, and the availability of specialists who can interpret subtle or abnormal sounds.</p>
+  <p>The website identifies four related barriers:</p>
+  <ul>
+    <li><strong>Subjectivity:</strong> different listeners may reach different conclusions from the same patient examination.</li>
+    <li><strong>Limited expertise:</strong> cardiopulmonary specialists are less available outside major urban centres.</li>
+    <li><strong>Cost:</strong> obtaining definitive answers, imaging, specialist consultation, and follow-up can be expensive.</li>
+    <li><strong>Remote access:</strong> specialist-level screening should be able to reach rural clinics, homes, remote communities, and nursing stations.</li>
+  </ul>
+
+  <h3>1.2 Intended impact</h3>
+  <p>The product vision is to move beyond a single, subjective listening event toward objective, multi-point acoustic screening. Recordings that are captured consistently can be stored, shared, compared, and reviewed remotely. In principle, this could help care teams decide which patients require closer monitoring, additional testing, specialist referral, or more urgent follow-up.</p>
+  <p>The website includes two market or clinical statistics—2.5 million Canadians described as living with undiagnosed cardiopulmonary disease and 40% of cardiac murmurs described as missed during the first examination. These figures are potentially important to the product rationale, but the source website does not provide citations. They should not be included in a published whitepaper until the definitions, study populations, dates, and primary sources are confirmed.</p>
+
+  <h2>2. Product Overview</h2>
+  <p>SonoHL is a wearable acoustic platform for heart and lung assessment. The device is designed as a vest containing acoustic sensors at predetermined locations. The website describes the current vest as the “SonoHL HALD V.2 Vest” and states that it uses 16 simultaneous channels, divided into 10 front sensors and six back sensors.</p>
+  <p>The intended product capabilities are:</p>
+  <ul>
+    <li>simultaneous multi-point acquisition of heart sounds;</li>
+    <li>collection of heart and lung sounds from consistent anatomical positions;</li>
+    <li>automatic selection or organization of the clearest acoustic signals;</li>
+    <li>signal processing intended to reduce noise;</li>
+    <li>real-time analysis intended to help identify abnormal heart sounds;</li>
+    <li>clinician review in person or from a remote location; and</li>
+    <li>comparison of repeat recordings over time.</li>
+  </ul>
+  <p>The product is framed as a clinician-support system. Its purpose is not to replace medical judgement, but to give clinicians better acoustic data and clearer context for decisions about triage, referral, follow-up, and monitoring.</p>
+
+  <h2>3. System Architecture and Operating Concept</h2>
+  <h3>3.1 Wearable acoustic capture</h3>
+  <p>The vest is intended to standardize sensor placement across multiple areas of the chest and back. Fixed sensor positions may reduce some of the placement variability associated with a manual stethoscope examination. Multi-channel acquisition also allows the system to collect signals from several locations during the same recording session rather than relying on a sequence of individual listening points.</p>
+
+  <h3>3.2 Signal preparation</h3>
+  <p>The website describes a three-stage technology workflow:</p>
+  <ol>
+    <li><strong>Capture:</strong> fixed sensor positions collect heart and lung sounds consistently.</li>
+    <li><strong>Clean:</strong> signal processing reduces noise and organizes the clearest recordings.</li>
+    <li><strong>Review:</strong> clinicians receive acoustic information that can be reviewed in person or remotely.</li>
+  </ol>
+  <p>The opening product description also states that the platform automatically selects the clearest signals and analyzes them in real time to help detect abnormal heart sounds. A formal technical whitepaper should expand this section with the sensor type, sampling rate, channel synchronization, analogue front end, filtering methods, signal-quality metrics, model architecture, training data, inference method, connectivity, cybersecurity controls, and clinician interface. None of those implementation details are available in the website copy.</p>
+
+  <h3>3.3 Clinician-ready output</h3>
+  <p>The intended output is not merely a collection of raw sound files. Recordings are to be organized so clinicians can review the clearest information, compare findings, assess changes over time, and support care decisions. The site refers to a dashboard through which a physician reviews recorded signals and heart and lung activity data. The exact dashboard functions, visualizations, alerts, and integration requirements remain to be documented.</p>
+
+  <h2>4. Intended Use Cases</h2>
+  <h3>4.1 Diagnostic screening</h3>
+  <p>During an in-person assessment, the vest is intended to capture standardized heart and lung sounds. Clinicians can then review the acoustic findings to support diagnosis, triage, and referral decisions. The proposed sequence is to capture standardized sounds, review the findings, and use the result to inform the next clinical step.</p>
+  <p>Potential settings described or implied by the site include primary care clinics, community clinics, rural health centres, nursing stations, and other environments where a cardiopulmonary specialist may not be immediately available.</p>
+
+  <h3>4.2 Telemonitoring</h3>
+  <p>The same vest is intended to support repeat recordings from a patient’s home, a rural clinic, or a remote community. Repeat acoustic data could allow clinicians to compare changes over time and prioritize follow-up. The telemonitoring concept is built around recording closer to the patient, comparing longitudinal changes, and directing clinical attention where it is most needed.</p>
+  <p>A complete whitepaper should define who operates the vest in each setting, how placement quality is confirmed, how data are transmitted, what constitutes a meaningful change, how alerts are handled, and what response times are expected.</p>
+
+  <h3>4.3 Supported assessment categories</h3>
+  <ul>
+    <li><strong>Heart sounds:</strong> cardiac acoustic assessment, including the stated goal of supporting murmur and abnormal-sound detection.</li>
+    <li><strong>Lung sounds:</strong> pulmonary acoustic assessment and cardiopulmonary sound classification.</li>
+    <li><strong>Trend review:</strong> comparison of repeat recordings to support monitoring over time.</li>
+  </ul>
+
+  <h2>5. Proposed Clinical Workflow</h2>
+  <p>The website presents a three-step operating workflow:</p>
+  <ol>
+    <li><strong>Put on the vest.</strong> The patient wears the lightweight sensor vest so the system can collect heart and lung signals. The proposed setup emphasizes fast placement and visible sensor coverage.</li>
+    <li><strong>Confirm positioning and explain monitoring.</strong> A nurse explains what the sensors track and confirms that the vest is positioned correctly. This guided step is intended to help the patient understand the recording process.</li>
+    <li><strong>Review the results.</strong> A physician reviews the dashboard and recorded signals to support care decisions. The collected data remain subject to interpretation by the clinical care team.</li>
+  </ol>
+  <p>This workflow should be refined through human-factors and usability work. Future documentation should specify fitting criteria, contraindications, recording duration, quality-control prompts, cleaning procedures, staff training, failed-recording handling, and escalation protocols.</p>
+
+  <h2>6. Clinical Development and Validation</h2>
+  <p>SonoHL is described as transitioning from prototype testing into clinical validation. The purpose of the validation program is to determine whether vest-acquired acoustic signals are consistent and useful for clinician review.</p>
+
+  <h3>6.1 Current validation objective</h3>
+  <p>The proposed study objective is to compare SonoHL recordings with established clinical references and evaluate:</p>
+  <ul>
+    <li>signal quality;</li>
+    <li>repeatability;</li>
+    <li>diagnostic usefulness;</li>
+    <li>murmur and abnormal heart-sound detection;</li>
+    <li>heart and lung sound classification; and</li>
+    <li>clarity of outputs for medical interpretation.</li>
+  </ul>
+
+  <h3>6.2 Definition of success</h3>
+  <p>The website defines success as evidence that clinicians can trust. The device must do more than collect sounds: it must produce consistent, useful acoustic information for assessment and monitoring. Proposed indicators include consistent recording quality, comparison with accepted reference methods, clearly defined performance measures, and readiness for pilot use in remote-care settings.</p>
+
+  <h3>6.3 Development roadmap</h3>
+  <table>
+    <tr><th>Stage</th><th>Status stated on website</th><th>Purpose</th></tr>
+    <tr><td>Prototype testing</td><td>Completed</td><td>Sensor placement, signal capture, and early usability work.</td></tr>
+    <tr><td>Clinical validation</td><td>Current</td><td>Compare recordings against reference standards and measure performance.</td></tr>
+    <tr><td>Pilot deployment</td><td>Next</td><td>Evaluate practical use with clinical partners, including remote-access settings.</td></tr>
+    <tr><td>Regulatory pathway</td><td>Future</td><td>Use validation evidence to support clearance and commercialization.</td></tr>
+  </table>
+  <p>The website also displays “CT1” and states that a clinical trial is currently enrolling. Trial registration, protocol, recruitment status, sites, endpoints, ethics approval, and sponsor information are not provided and must be confirmed before publication.</p>
+
+  <h2>7. Value Proposition</h2>
+  <h3>7.1 For patients</h3>
+  <ul>
+    <li>potential access to cardiopulmonary screening closer to home;</li>
+    <li>reduced dependence on travel for an initial specialist-level acoustic review;</li>
+    <li>repeat monitoring from home or a local clinic; and</li>
+    <li>more consistent collection of heart and lung sounds.</li>
+  </ul>
+
+  <h3>7.2 For clinicians and health systems</h3>
+  <ul>
+    <li>standardized, multi-point acoustic capture;</li>
+    <li>recordings that can be stored, shared, and reviewed remotely;</li>
+    <li>support for triage and referral decisions;</li>
+    <li>comparison of findings over time; and</li>
+    <li>potential extension of specialist expertise into underserved settings.</li>
+  </ul>
+  <p>These are intended benefits rather than established outcomes. Claims concerning cost reduction, diagnostic accuracy, travel reduction, workflow efficiency, health-system savings, or improved patient outcomes will require prospective evidence.</p>
+
+  <h2>8. Product Positioning and Boundaries</h2>
+  <p>SonoHL is positioned as a point-of-care diagnostic support and remote-monitoring platform. The site consistently states that the product supports clinicians rather than replacing them. This distinction should remain central to product, clinical, and regulatory messaging.</p>
+  <p>A formal intended-use statement has not been provided. Before regulatory or commercial use, the organization will need to define the target population, users, care settings, indications, contraindications, required clinical oversight, output type, and whether any algorithmic result is informational, triage-oriented, or diagnostic.</p>
+
+  <h2>9. Team and Clinical Governance</h2>
+  <p>The website describes SonoHL as being built by clinicians and engineers. The listed team is:</p>
+  <ul>
+    <li><strong>Dr. Nadia Giannetti</strong> — CEO and Co-Founder</li>
+    <li><strong>Matthew Behr, P.Eng</strong> — CTO and Co-Founder</li>
+    <li><strong>Mitchel Benovoy, PhD</strong> — Chief AI Officer and Co-Founder</li>
+    <li><strong>Rachel Manz</strong> — R&amp;D Specialist</li>
+    <li><strong>Alexandre Hadji-Thomas</strong> — AI and machine learning</li>
+    <li><strong>Julia Deist</strong> — Mechanical Engineer</li>
+    <li><strong>Ines Tazi Riffi</strong> — Electrical Engineer</li>
+    <li><strong>Natalie Gendron</strong> — Clinical Trial Coordinator</li>
+    <li><strong>Aaron Beckerleg</strong> — Website Designer and Intern</li>
+  </ul>
+  <p>Clinical governance is attributed to Dr. Renzo Cecere, Cardiac Surgery at McGill University, and Dr. Nadia Giannetti, Cardiology at McGill University. Titles, affiliations, advisory roles, and authorization to publish them should be verified in the final document.</p>
+
+  <h2>10. Partnership Strategy</h2>
+  <p>SonoHL is seeking clinical trial partners, cardiopulmonary research collaborators, telehealth network partners, and strategic investors. Near-term partnerships can support four priorities:</p>
+  <ol>
+    <li>comparison against appropriate clinical reference methods;</li>
+    <li>recruitment of representative patient populations;</li>
+    <li>evaluation of clinical and operational use in remote-care settings; and</li>
+    <li>development of evidence for regulatory clearance and commercialization.</li>
+  </ol>
+  <p>Potential collaborators should be provided with a study synopsis, investigational-device status, data-governance plan, technical specifications, proposed endpoints, responsibilities, funding model, and publication policy.</p>
+
+  <p style="page-break-before: always;"><br></p>
+  <h2>Appendix A — Claims and Evidence Required</h2>
+  <p>The following statements are present in or directly derived from the website. Each requires confirmation before external use.</p>
+  <table>
+    <tr><th>Website-derived statement</th><th>Evidence or clarification required</th></tr>
+    <tr><td>2.5 million Canadians live with undiagnosed cardiopulmonary disease.</td><td>Primary epidemiological source, definition of disease category, population, and year.</td></tr>
+    <tr><td>40% of cardiac murmurs are missed at the first examination.</td><td>Primary study, setting, examiner type, patient population, and definition of “missed.”</td></tr>
+    <tr><td>The device records 16 channels simultaneously.</td><td>Current hardware specification and verification that all 16 channels are active and synchronized.</td></tr>
+    <tr><td>The vest uses 10 front sensors and six back sensors.</td><td>Current design specification; reconcile with a separate “8+ acoustic sensor positions” website statistic and hidden “8 sensors” variant copy.</td></tr>
+    <tr><td>The system automatically selects the clearest signals.</td><td>Signal-quality method, selection criteria, validation protocol, and failure handling.</td></tr>
+    <tr><td>The system analyzes signals in real time.</td><td>Definition of real time, processing latency, hardware/software configuration, and performance testing.</td></tr>
+    <tr><td>The platform helps detect abnormal heart sounds and can find heart and lung defects.</td><td>Precise intended claim, target conditions, sensitivity, specificity, comparator, confidence intervals, and regulatory status. “Defects” should be replaced with clinically precise terminology.</td></tr>
+    <tr><td>Signal processing reduces noise and produces clearer recordings.</td><td>Objective signal-quality metrics, test conditions, comparator, and acceptance criteria.</td></tr>
+    <tr><td>Clinical trial CT1 is currently enrolling.</td><td>Trial registration, protocol identifier, ethics approval, sites, sponsor, recruitment status, and dates.</td></tr>
+    <tr><td>The product is ready for remote monitoring.</td><td>Connectivity, privacy, cybersecurity, usability, data-transfer reliability, operator model, and clinical-response workflow.</td></tr>
+  </table>
+
+  <h2>Appendix B — Information Needed for a Formal Whitepaper</h2>
+  <ul>
+    <li>formal intended-use and indications-for-use statements;</li>
+    <li>device classification and target regulatory jurisdictions;</li>
+    <li>complete hardware and sensor specifications;</li>
+    <li>signal-processing and AI/ML technical description;</li>
+    <li>training, validation, and test dataset descriptions;</li>
+    <li>clinical study protocol and statistical analysis plan;</li>
+    <li>performance results with confidence intervals and subgroup analyses;</li>
+    <li>human-factors, usability, safety, and risk-management results;</li>
+    <li>privacy, cybersecurity, data residency, and interoperability architecture;</li>
+    <li>manufacturing, cleaning, durability, and biocompatibility information;</li>
+    <li>health-economic model and workflow evidence; and</li>
+    <li>peer-reviewed references for all epidemiological and clinical claims.</li>
+  </ul>
+
+  <h2>Conclusion</h2>
+  <p>SonoHL’s product concept addresses a clear care-delivery challenge: heart and lung sounds are routinely collected, but consistent acquisition and expert interpretation are not universally available. A wearable, multi-channel acoustic vest could make recordings more standardized, reviewable, and suitable for use across distance. The website presents a coherent path from capture and signal preparation to clinician review, diagnostic screening, and longitudinal monitoring.</p>
+  <p>The next requirement is evidence. The product narrative should be supported by verified technical specifications, a precise intended-use statement, prospective clinical validation, human-factors work, and a defined regulatory strategy. With those additions, this working document can evolve from a website-derived product brief into a defensible scientific and commercial whitepaper.</p>
+
+  <p class="small"><strong>Source:</strong> All product-specific content in this draft was derived from the SonoHL website file supplied by the user. Connecting language was added only to organize the source material and identify unanswered questions; it should not be interpreted as new clinical evidence.</p>
+</body>
+</html>

@@ -1,0 +1,4 @@
+.DS_Store
+
+# Internal regulatory planning artifacts. Do not publish in this public repo.
+docs/regulatory/
