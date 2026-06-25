@@ -1750,6 +1750,51 @@
 }
 
 </style>
+<style id="lean-medtech-final-scalpel">
+body:not(.dark-mode),
+body:not(.dark-mode) #single-page-stage,
+body:not(.dark-mode) main,
+body:not(.dark-mode) section,
+body:not(.dark-mode) .site-page,
+body:not(.dark-mode) .container,
+body:not(.dark-mode) .hero-grid,
+body:not(.dark-mode) .problem-redesign,
+body:not(.dark-mode) .clinical-hero,
+body:not(.dark-mode) .tech-grid {
+  background-color: #fff !important;
+  background-image: none !important;
+}
+body:not(.dark-mode) #problem,
+body:not(.dark-mode) #technology,
+body:not(.dark-mode) #team,
+body:not(.dark-mode) #regulatory,
+body:not(.dark-mode) #single-page-stage > .site-page:nth-child(even) {
+  background-color: #f6f8fa !important;
+  background-image: none !important;
+}
+body:not(.dark-mode) :is(.hero-proto-selector,.vest-frame,.hero-proto-stage,.problem-diagram,.problem-diagram-clean,.feature-card,.team-card,.tech-how-panel,.tech-step-big,.tech-note-card,.tech-benefit,.tech-output,.clinical-now-panel,.clinical-path-panel,.clinical-stage,.clinical-evidence,.clinical-kpi,.uc-simple-shell,.uc-panel-shell,.uc-simple-step,.uc-direct-card,.diag-step,.diag-condition,.tele-node,.tele-dashboard,.tele-check,.dash-patient,.problem-stat,.problem-bullet,.problem-impact-card,.prototype-meta,.prototype-chip,.pipeline-node,.tech-pipeline,.product-workflow-note,.product-preview-card,.cta-inner) {
+  background-color: #fff !important;
+  background-image: none !important;
+  border-color: #d8e0e8 !important;
+  border-radius: 3px !important;
+  box-shadow: none !important;
+}
+body:not(.dark-mode) :is(.hero-proto-stage,.tech-visual-box) {
+  background-color: #f6f8fa !important;
+}
+body:not(.dark-mode) :is(.btn-primary,.btn-secondary,.next-page-button,.nav-cta,.uc-tab,.hero-proto-tab,.problem-pill,.hero-proto-tag,.prototype-chip,.label) {
+  border-radius: 2px !important;
+  box-shadow: none !important;
+}
+body:not(.dark-mode) .hero-title {
+  font-size: clamp(2.65rem, 4.8vw, 4.7rem) !important;
+  letter-spacing: -.055em !important;
+}
+body:not(.dark-mode) .hero-content p {
+  background: transparent !important;
+  border-radius: 0 !important;
+}
+</style>
 <style id="regulatory-placeholder-layout-fix">
 body:not(.dark-mode) #regulatory .container {
   max-width: 960px !important;
@@ -1767,6 +1812,1556 @@ body:not(.dark-mode) #regulatory h2 {
 
 body:not(.dark-mode) #regulatory p {
   max-width: 720px !important;
+}
+</style>
+<style id="lean-medtech-eof-overhaul">
+/* EOF override: lean, professional medtech design. */
+:root {
+  --med-ink: #102033 !important;
+  --med-ink-soft: #34475e !important;
+  --med-muted: #667789 !important;
+  --med-blue: #1f5f8b !important;
+  --med-blue-deep: #143f5f !important;
+  --med-blue-soft: #eaf3f8 !important;
+  --med-red: #a93f46 !important;
+  --med-red-soft: #fff6f6 !important;
+  --med-bg: #ffffff !important;
+  --med-bg-alt: #f6f8fa !important;
+  --med-line: #d8e0e8 !important;
+  --med-line-strong: #bfccd8 !important;
+}
+
+html,
+body,
+body:not(.dark-mode) {
+  background: var(--med-bg) !important;
+  color: var(--med-ink) !important;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
+}
+
+body::before,
+body::after,
+body:not(.dark-mode)::before,
+body:not(.dark-mode)::after,
+.hero-bg,
+#single-page-stage > .site-page::before,
+#single-page-stage > .site-page::after,
+.site-page::before,
+.site-page::after,
+.hero-content::after,
+.hero-proto-selector::before,
+.hero-proto-selector::after,
+.hero-proto-stage::before,
+.hero-proto-stage::after,
+.problem-diagram::before,
+.problem-diagram::after,
+.tech-how-panel::after,
+.clinical-now-panel::before,
+.clinical-path-panel::before,
+.cta-inner::before,
+.cta-inner::after {
+  content: none !important;
+  display: none !important;
+  background: none !important;
+  box-shadow: none !important;
+}
+
+.container {
+  width: min(100% - 48px, 1120px) !important;
+  max-width: 1120px !important;
+}
+
+section,
+.site-page,
+.site-page.active,
+#hero,
+#problem,
+#use-cases,
+#solution,
+#technology,
+#clinical,
+#team,
+#contact,
+#regulatory,
+#single-page-stage > .site-page {
+  background: var(--med-bg) !important;
+  color: var(--med-ink) !important;
+  min-height: auto !important;
+  padding: clamp(72px, 9vw, 116px) 0 !important;
+  overflow: visible !important;
+}
+
+#single-page-stage > .site-page:nth-child(even),
+#problem,
+#technology,
+#team,
+#regulatory {
+  background: var(--med-bg-alt) !important;
+}
+
+nav,
+body:not(.dark-mode) nav,
+body:not(.dark-mode) nav#navbar {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  z-index: 1000 !important;
+  height: 72px !important;
+  padding: 0 !important;
+  background: rgba(255, 255, 255, 0.96) !important;
+  border: 0 !important;
+  border-bottom: 1px solid var(--med-line) !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  backdrop-filter: blur(14px) !important;
+}
+
+.nav-container {
+  width: min(100% - 48px, 1160px) !important;
+  max-width: 1160px !important;
+  height: 72px !important;
+  margin: 0 auto !important;
+  padding: 0 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+}
+
+.nav-logo,
+.nav-logo span {
+  color: var(--med-ink) !important;
+  font-size: 1.02rem !important;
+  font-weight: 650 !important;
+  letter-spacing: -0.02em !important;
+  text-transform: none !important;
+}
+
+.nav-logo::before {
+  background: var(--med-red) !important;
+  box-shadow: none !important;
+}
+
+.nav-links {
+  gap: 4px !important;
+  align-items: center !important;
+}
+
+.nav-links a,
+.nav-links a.page-link,
+.nav-links a.page-link.active:not(.nav-cta) {
+  color: var(--med-ink-soft) !important;
+  background: transparent !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  padding: 24px 11px 22px !important;
+  margin: 0 !important;
+  font-size: 0.82rem !important;
+  font-weight: 550 !important;
+  letter-spacing: 0 !important;
+  text-transform: none !important;
+}
+
+.nav-links a:hover,
+.nav-links a.page-link.active:not(.nav-cta) {
+  color: var(--med-blue-deep) !important;
+  border-bottom: 2px solid var(--med-blue) !important;
+}
+
+.nav-cta,
+a.nav-cta,
+.nav-links a.nav-cta {
+  margin-left: 12px !important;
+  padding: 10px 16px !important;
+  border-radius: 4px !important;
+  border: 1px solid var(--med-blue) !important;
+  background: var(--med-blue) !important;
+  color: #fff !important;
+  box-shadow: none !important;
+  font-weight: 650 !important;
+  text-transform: none !important;
+}
+
+.nav-cta:hover,
+a.nav-cta:hover,
+.nav-links a.nav-cta:hover {
+  background: var(--med-blue-deep) !important;
+  border-color: var(--med-blue-deep) !important;
+  color: #fff !important;
+}
+
+#hero,
+#single-page-stage > .site-page[data-page="home"] {
+  padding-top: clamp(126px, 14vw, 168px) !important;
+  padding-bottom: clamp(74px, 10vw, 120px) !important;
+  border-bottom: 1px solid var(--med-line) !important;
+}
+
+.hero-grid {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1.02fr) minmax(360px, 0.98fr) !important;
+  gap: clamp(42px, 6vw, 76px) !important;
+  align-items: center !important;
+}
+
+.hero-content {
+  max-width: 650px !important;
+  padding: 0 !important;
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+.label,
+.hero-content .label,
+.problem-copy .label,
+.team-header .label,
+.tech-emphasis-head .label,
+.clinical-hero-copy .label,
+.cta-inner .label,
+.uc-direct-header .label,
+#use-cases .label {
+  display: inline-block !important;
+  padding: 0 0 10px !important;
+  margin: 0 0 22px !important;
+  border: 0 !important;
+  border-bottom: 2px solid var(--med-red) !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  color: var(--med-red) !important;
+  font-size: 0.76rem !important;
+  line-height: 1.2 !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.1em !important;
+  text-transform: uppercase !important;
+  box-shadow: none !important;
+}
+
+.label::before,
+.label::after,
+.hero-content .label::before,
+.problem-copy .label::before,
+.clinical-hero-copy .label::before,
+.cta-inner .label::before {
+  display: none !important;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.hero-title,
+.tech-emphasis-head h2,
+.clinical-hero-copy h2,
+.problem-copy h2,
+.cta-inner h2 {
+  color: var(--med-ink) !important;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.045em !important;
+  text-transform: none !important;
+  text-wrap: balance !important;
+}
+
+.hero-title {
+  max-width: 680px !important;
+  margin: 0 0 28px !important;
+  font-size: clamp(2.85rem, 5.4vw, 5.15rem) !important;
+  line-height: 0.98 !important;
+}
+
+h2,
+.problem-copy h2,
+.tech-emphasis-head h2,
+.clinical-hero-copy h2,
+.cta-inner h2 {
+  font-size: clamp(2.05rem, 3.7vw, 3.55rem) !important;
+  line-height: 1.02 !important;
+}
+
+h3 {
+  font-size: 1.04rem !important;
+  line-height: 1.28 !important;
+  letter-spacing: -0.015em !important;
+}
+
+.hero-title span {
+  display: inline !important;
+}
+
+.hero-title-accent,
+.feature-icon,
+.tech-step-num,
+.clinical-stage-num,
+.uc-step-number {
+  color: var(--med-blue) !important;
+  -webkit-text-fill-color: var(--med-blue) !important;
+  background: none !important;
+}
+
+p,
+li,
+small,
+.hero-content p,
+.problem-copy .problem-lead,
+.tech-emphasis-head p,
+.clinical-hero-copy p,
+.cta-inner p,
+.feature-card p,
+.team-card p,
+.tech-step-big p,
+.tech-benefit span,
+.tech-note-card p,
+.clinical-stage span,
+.clinical-evidence span,
+.clinical-kpi span,
+.problem-bullet small {
+  color: var(--med-muted) !important;
+  font-size: 0.98rem !important;
+  line-height: 1.72 !important;
+  letter-spacing: 0 !important;
+}
+
+.hero-content p {
+  max-width: 600px !important;
+  margin: 0 0 32px !important;
+  padding: 0 0 0 22px !important;
+  border-left: 3px solid var(--med-line-strong) !important;
+  background: transparent !important;
+  color: var(--med-ink-soft) !important;
+  font-size: clamp(1.02rem, 1.45vw, 1.16rem) !important;
+}
+
+.hero-content p strong {
+  color: var(--med-ink) !important;
+  font-weight: 700 !important;
+}
+
+.hero-actions,
+.cta-buttons {
+  gap: 12px !important;
+}
+
+.btn-primary,
+.btn-secondary,
+.next-page-button,
+.uc-tab,
+.hero-proto-tab,
+button,
+.clinical-now-phase {
+  border-radius: 4px !important;
+  box-shadow: none !important;
+  text-transform: none !important;
+  letter-spacing: 0 !important;
+  font-weight: 650 !important;
+}
+
+.btn-primary,
+.next-page-button,
+.uc-tab.active-diag,
+.uc-tab.active-tele,
+.hero-proto-tab.active,
+.clinical-now-phase {
+  background: var(--med-blue) !important;
+  border: 1px solid var(--med-blue) !important;
+  color: #fff !important;
+}
+
+.btn-primary:hover,
+.next-page-button:hover {
+  background: var(--med-blue-deep) !important;
+  border-color: var(--med-blue-deep) !important;
+  transform: none !important;
+}
+
+.btn-secondary,
+.uc-tab,
+.hero-proto-tab {
+  background: #fff !important;
+  border: 1px solid var(--med-line-strong) !important;
+  color: var(--med-ink-soft) !important;
+}
+
+.hero-visual {
+  display: flex !important;
+  justify-content: flex-end !important;
+}
+
+.hero-proto-selector,
+.vest-frame,
+.hero-proto-stage,
+.problem-diagram,
+.problem-diagram-clean,
+.uc-simple-shell,
+.uc-panel-shell,
+.tech-how-panel,
+.clinical-now-panel,
+.clinical-path-panel,
+.cta-inner {
+  background: #fff !important;
+  border: 1px solid var(--med-line) !important;
+  border-radius: 8px !important;
+  box-shadow: 0 1px 2px rgba(16, 32, 51, 0.04) !important;
+}
+
+.hero-proto-selector,
+.vest-frame {
+  width: min(100%, 470px) !important;
+  padding: 22px !important;
+}
+
+.vest-label-top,
+.hero-proto-tag,
+.uc-direct-line span,
+.prototype-chip,
+.problem-pill {
+  border-radius: 3px !important;
+  background: var(--med-bg-alt) !important;
+  border: 1px solid var(--med-line) !important;
+  color: var(--med-ink-soft) !important;
+  box-shadow: none !important;
+  text-transform: none !important;
+  letter-spacing: 0 !important;
+}
+
+.vest-subtitle,
+.prototype-meta span,
+.prototype-chip,
+.hero-proto-selector .prototype-meta span {
+  color: var(--med-muted) !important;
+}
+
+.hero-proto-tabs {
+  display: grid !important;
+  gap: 0 !important;
+  padding: 0 !important;
+  margin-bottom: 14px !important;
+  background: #fff !important;
+  border: 1px solid var(--med-line) !important;
+  border-radius: 4px !important;
+  overflow: hidden !important;
+}
+
+.hero-proto-tab {
+  border: 0 !important;
+  border-right: 1px solid var(--med-line) !important;
+  border-radius: 0 !important;
+  background: #fff !important;
+  color: var(--med-ink-soft) !important;
+}
+
+.hero-proto-tab:last-child {
+  border-right: 0 !important;
+}
+
+.hero-proto-tab.active {
+  background: var(--med-blue-soft) !important;
+  color: var(--med-blue-deep) !important;
+}
+
+.hero-proto-stage {
+  background: var(--med-bg-alt) !important;
+  min-height: 328px !important;
+  padding: 22px !important;
+}
+
+.hero-proto-panel svg {
+  filter: none !important;
+}
+
+.prototype-meta,
+.problem-stat,
+.problem-bullet,
+.problem-impact-card,
+.feature-card,
+.team-card,
+.tech-mini-card,
+.tech-device-card,
+.tech-stack-card,
+.tech-visual-box,
+.tech-note-card,
+.tech-benefit,
+.tech-step-big,
+.tech-output,
+.clinical-stage,
+.clinical-evidence,
+.clinical-kpi,
+.uc-simple-step,
+.uc-direct-card,
+.diag-step,
+.diag-condition,
+.tele-node,
+.tele-dashboard,
+.tele-check,
+.dash-patient,
+.pipeline-node,
+.tech-pipeline,
+.product-workflow-note,
+.product-preview-card {
+  background: #fff !important;
+  border: 1px solid var(--med-line) !important;
+  border-radius: 6px !important;
+  box-shadow: none !important;
+  transform: none !important;
+}
+
+.feature-card:hover,
+.team-card:hover,
+.tech-step-big:hover,
+.uc-simple-step:hover,
+.uc-direct-card:hover {
+  transform: none !important;
+  border-color: var(--med-line-strong) !important;
+  box-shadow: none !important;
+}
+
+.feature-card,
+.team-card {
+  padding: 28px 26px !important;
+}
+
+.feature-card h3,
+.team-card h3,
+.problem-stat strong,
+.problem-bullet strong,
+.problem-impact-card strong,
+.tech-mini-card strong,
+.tech-stack-card strong,
+.tech-note-card strong,
+.tech-benefit b,
+.clinical-evidence strong,
+.clinical-kpi strong {
+  color: var(--med-ink) !important;
+  font-weight: 700 !important;
+}
+
+.problem-redesign,
+#technology .tech-grid.tech-redesign,
+.clinical-hero,
+.team-grid,
+.features-grid,
+.uc-direct-grid {
+  gap: clamp(26px, 4vw, 52px) !important;
+}
+
+body:not(.dark-mode) #single-page-stage > .site-page[data-page="problem"] .problem-flow,
+body:not(.dark-mode) #problem .problem-flow,
+.problem-flow {
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  gap: 12px !important;
+}
+
+body:not(.dark-mode) #single-page-stage > .site-page[data-page="problem"] .flow-arrow,
+body:not(.dark-mode) #problem .flow-arrow,
+.flow-arrow {
+  display: none !important;
+}
+
+body:not(.dark-mode) #single-page-stage > .site-page[data-page="problem"] .flow-node,
+body:not(.dark-mode) #problem .flow-node,
+.flow-node {
+  min-height: 0 !important;
+  padding: 20px !important;
+  display: block !important;
+  background: #fff !important;
+  border: 1px solid var(--med-line) !important;
+  border-radius: 6px !important;
+  box-shadow: none !important;
+}
+
+.flow-icon,
+.problem-bullet-dot,
+.tech-stack-icon {
+  width: 34px !important;
+  height: 34px !important;
+  border-radius: 4px !important;
+  background: var(--med-blue-soft) !important;
+  border: 1px solid #c9dde9 !important;
+  color: var(--med-blue-deep) !important;
+  margin-bottom: 12px !important;
+}
+
+.problem-bullet-highlight,
+.tech-stack-card.highlight,
+.tech-step-big.featured,
+.flow-node.problem-highlight,
+.clinical-now-panel {
+  background: var(--med-blue-soft) !important;
+  border-color: #bfd7e6 !important;
+}
+
+.problem-snapshot,
+.problem-bottom-row,
+.tech-benefit-strip,
+.tech-note-row,
+.uc-hero-metrics {
+  gap: 12px !important;
+}
+
+.tech-step-flow,
+.tech-benefit-strip,
+.tech-note-row {
+  display: grid !important;
+}
+
+.tech-arrow-row,
+.tech-arrow-row::before,
+.tech-arrow-row::after,
+.tech-arrow-tip1,
+.tech-arrow-tip2 {
+  display: none !important;
+}
+
+.tech-visual-box {
+  background: var(--med-bg-alt) !important;
+}
+
+.tech-visual-box svg,
+.hero-proto-stage svg,
+.clinical-path-panel svg,
+.uc-simple-shell svg {
+  filter: none !important;
+}
+
+svg text,
+.uc-svg-text-main,
+.uc-svg-text-small,
+.tech-visual-box svg text,
+.hero-proto-panel svg text {
+  fill: var(--med-ink) !important;
+}
+
+svg [stroke] {
+  stroke-opacity: 0.9 !important;
+}
+
+.team-card {
+  text-align: left !important;
+}
+
+.avatar {
+  margin-left: 0 !important;
+  border-radius: 6px !important;
+  background: var(--med-bg-alt) !important;
+  border: 1px solid var(--med-line) !important;
+  box-shadow: none !important;
+}
+
+.team-card .role {
+  color: var(--med-blue) !important;
+}
+
+.stats-row,
+.governance-strip,
+footer {
+  background: var(--med-bg-alt) !important;
+  border-top: 1px solid var(--med-line) !important;
+  border-bottom: 0 !important;
+  box-shadow: none !important;
+}
+
+.investigational-status,
+.investigational-disclaimer,
+.disclaimer,
+[class*="disclaimer"] {
+  background: var(--med-red-soft) !important;
+  border: 1px solid #efd0d2 !important;
+  border-radius: 4px !important;
+  color: #7e2f34 !important;
+  box-shadow: none !important;
+}
+
+#regulatory .cta-inner {
+  max-width: 820px !important;
+  padding: 44px !important;
+  text-align: left !important;
+}
+
+#regulatory h2 {
+  max-width: 780px !important;
+  font-size: clamp(2rem, 4vw, 3.4rem) !important;
+  line-height: 1.04 !important;
+}
+
+#regulatory p {
+  max-width: 720px !important;
+}
+
+@media (max-width: 980px) {
+  .container,
+  .nav-container {
+    width: min(100% - 32px, 1120px) !important;
+  }
+
+  nav,
+  .nav-container {
+    height: auto !important;
+    min-height: 68px !important;
+  }
+
+  .nav-container {
+    padding: 14px 0 !important;
+    align-items: flex-start !important;
+    gap: 14px !important;
+  }
+
+  .nav-links {
+    flex-wrap: wrap !important;
+    justify-content: flex-end !important;
+    row-gap: 4px !important;
+  }
+
+  .nav-links a,
+  .nav-links a.page-link,
+  .nav-links a.page-link.active:not(.nav-cta) {
+    padding: 7px 8px !important;
+  }
+
+  .nav-cta,
+  .nav-links a.nav-cta {
+    margin-left: 4px !important;
+    padding: 8px 12px !important;
+  }
+
+  .hero-grid,
+  .problem-redesign,
+  #technology .tech-grid.tech-redesign,
+  .clinical-hero {
+    grid-template-columns: 1fr !important;
+  }
+
+  .hero-visual {
+    justify-content: flex-start !important;
+  }
+}
+
+@media (max-width: 720px) {
+  .container,
+  .nav-container {
+    width: min(100% - 26px, 1120px) !important;
+  }
+
+  section,
+  .site-page,
+  #hero,
+  #problem,
+  #use-cases,
+  #solution,
+  #technology,
+  #clinical,
+  #team,
+  #contact,
+  #regulatory {
+    padding: 64px 0 !important;
+  }
+
+  #hero {
+    padding-top: 150px !important;
+  }
+
+  .hero-title {
+    font-size: clamp(2.45rem, 12vw, 3.75rem) !important;
+  }
+
+  .hero-content p {
+    padding-left: 16px !important;
+  }
+
+  .problem-flow,
+  .problem-bottom-row,
+  .problem-snapshot,
+  .uc-hero-metrics,
+  .tech-benefit-strip,
+  .tech-note-row {
+    grid-template-columns: 1fr !important;
+  }
+
+  .hero-proto-selector,
+  .vest-frame,
+  .cta-inner,
+  #regulatory .cta-inner {
+    padding: 20px !important;
+  }
+}
+</style>
+<style id="lean-medtech-final-overhaul">
+/*
+  Final visual direction: restrained medtech site.
+  Keep content intact; suppress prior red/postfiat/AI artifact treatments.
+*/
+:root {
+  --med-ink: #102033 !important;
+  --med-ink-soft: #34475e !important;
+  --med-muted: #667789 !important;
+  --med-blue: #1f5f8b !important;
+  --med-blue-deep: #143f5f !important;
+  --med-blue-soft: #eaf3f8 !important;
+  --med-red: #b84b4f !important;
+  --med-red-soft: #fff5f5 !important;
+  --med-bg: #ffffff !important;
+  --med-bg-alt: #f6f8fa !important;
+  --med-line: #d8e0e8 !important;
+  --med-line-strong: #bfccd8 !important;
+  --radius: 6px !important;
+  --shadow: none !important;
+}
+
+html {
+  background: var(--med-bg) !important;
+  scroll-behavior: smooth !important;
+}
+
+body,
+body:not(.dark-mode) {
+  background: var(--med-bg) !important;
+  color: var(--med-ink) !important;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
+  letter-spacing: 0 !important;
+}
+
+body::before,
+body::after,
+body:not(.dark-mode)::before,
+body:not(.dark-mode)::after,
+.hero-bg,
+#single-page-stage > .site-page::before,
+#single-page-stage > .site-page::after,
+.site-page::before,
+.site-page::after,
+.hero-content::after,
+.hero-proto-selector::before,
+.hero-proto-selector::after,
+.hero-proto-stage::before,
+.hero-proto-stage::after,
+.problem-diagram::before,
+.problem-diagram::after,
+.tech-how-panel::after,
+.clinical-now-panel::before,
+.clinical-path-panel::before,
+.cta-inner::before,
+.cta-inner::after {
+  content: none !important;
+  display: none !important;
+  background: none !important;
+  box-shadow: none !important;
+}
+
+.container {
+  width: min(100% - 48px, 1120px) !important;
+  max-width: 1120px !important;
+}
+
+section,
+.site-page,
+.site-page.active,
+#hero,
+#problem,
+#use-cases,
+#solution,
+#technology,
+#clinical,
+#team,
+#contact,
+#regulatory,
+#single-page-stage > .site-page {
+  background: var(--med-bg) !important;
+  color: var(--med-ink) !important;
+  min-height: auto !important;
+  padding: clamp(72px, 9vw, 116px) 0 !important;
+  overflow: visible !important;
+}
+
+#single-page-stage > .site-page:nth-child(even),
+#problem,
+#technology,
+#team,
+#regulatory {
+  background: var(--med-bg-alt) !important;
+}
+
+nav,
+body:not(.dark-mode) nav {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  z-index: 1000 !important;
+  height: 72px !important;
+  padding: 0 !important;
+  background: rgba(255, 255, 255, 0.96) !important;
+  border-bottom: 1px solid var(--med-line) !important;
+  box-shadow: none !important;
+  backdrop-filter: blur(14px) !important;
+}
+
+.nav-container {
+  width: min(100% - 48px, 1160px) !important;
+  max-width: 1160px !important;
+  height: 72px !important;
+  margin: 0 auto !important;
+  padding: 0 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+}
+
+.nav-logo,
+.nav-logo span {
+  color: var(--med-ink) !important;
+  font-size: 1.02rem !important;
+  font-weight: 650 !important;
+  letter-spacing: -0.02em !important;
+  text-transform: none !important;
+}
+
+.nav-links {
+  gap: 4px !important;
+  align-items: center !important;
+}
+
+.nav-links a,
+.nav-links a.page-link,
+.nav-links a.page-link.active:not(.nav-cta) {
+  color: var(--med-ink-soft) !important;
+  background: transparent !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  padding: 24px 11px 22px !important;
+  margin: 0 !important;
+  font-size: 0.82rem !important;
+  font-weight: 550 !important;
+  letter-spacing: 0 !important;
+  text-transform: none !important;
+}
+
+.nav-links a:hover,
+.nav-links a.page-link.active:not(.nav-cta) {
+  color: var(--med-blue-deep) !important;
+  border-bottom: 2px solid var(--med-blue) !important;
+}
+
+.nav-cta,
+a.nav-cta,
+.nav-links a.nav-cta {
+  margin-left: 12px !important;
+  padding: 10px 16px !important;
+  border-radius: 4px !important;
+  border: 1px solid var(--med-blue) !important;
+  background: var(--med-blue) !important;
+  color: #fff !important;
+  box-shadow: none !important;
+  font-weight: 650 !important;
+  text-transform: none !important;
+}
+
+.nav-cta:hover,
+a.nav-cta:hover,
+.nav-links a.nav-cta:hover {
+  background: var(--med-blue-deep) !important;
+  border-color: var(--med-blue-deep) !important;
+  color: #fff !important;
+}
+
+#hero,
+#single-page-stage > .site-page[data-page="home"] {
+  padding-top: clamp(126px, 14vw, 168px) !important;
+  padding-bottom: clamp(74px, 10vw, 120px) !important;
+  border-bottom: 1px solid var(--med-line) !important;
+}
+
+.hero-grid {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1.02fr) minmax(360px, 0.98fr) !important;
+  gap: clamp(42px, 6vw, 76px) !important;
+  align-items: center !important;
+}
+
+.hero-content {
+  max-width: 650px !important;
+  padding: 0 !important;
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+.label,
+.hero-content .label,
+.problem-copy .label,
+.team-header .label,
+.tech-emphasis-head .label,
+.clinical-hero-copy .label,
+.cta-inner .label,
+.uc-direct-header .label,
+#use-cases .label {
+  display: inline-block !important;
+  padding: 0 0 10px !important;
+  margin: 0 0 22px !important;
+  border: 0 !important;
+  border-bottom: 2px solid var(--med-red) !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  color: var(--med-red) !important;
+  font-size: 0.76rem !important;
+  line-height: 1.2 !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.1em !important;
+  text-transform: uppercase !important;
+  box-shadow: none !important;
+}
+
+.label::before,
+.label::after,
+.hero-content .label::before,
+.problem-copy .label::before,
+.clinical-hero-copy .label::before,
+.cta-inner .label::before {
+  display: none !important;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.hero-title,
+.tech-emphasis-head h2,
+.clinical-hero-copy h2,
+.problem-copy h2,
+.cta-inner h2 {
+  color: var(--med-ink) !important;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.045em !important;
+  text-transform: none !important;
+  text-wrap: balance !important;
+}
+
+.hero-title {
+  max-width: 680px !important;
+  margin: 0 0 28px !important;
+  font-size: clamp(2.85rem, 5.4vw, 5.15rem) !important;
+  line-height: 0.98 !important;
+}
+
+h2,
+.problem-copy h2,
+.tech-emphasis-head h2,
+.clinical-hero-copy h2,
+.cta-inner h2 {
+  font-size: clamp(2.05rem, 3.7vw, 3.55rem) !important;
+  line-height: 1.02 !important;
+}
+
+h3 {
+  font-size: 1.04rem !important;
+  line-height: 1.28 !important;
+  letter-spacing: -0.015em !important;
+}
+
+.hero-title span {
+  display: inline !important;
+}
+
+.hero-title-accent,
+.feature-icon,
+.tech-step-num,
+.clinical-stage-num,
+.uc-step-number {
+  color: var(--med-blue) !important;
+  -webkit-text-fill-color: var(--med-blue) !important;
+  background: none !important;
+}
+
+p,
+li,
+small,
+.hero-content p,
+.problem-copy .problem-lead,
+.tech-emphasis-head p,
+.clinical-hero-copy p,
+.cta-inner p,
+.feature-card p,
+.team-card p,
+.tech-step-big p,
+.tech-benefit span,
+.tech-note-card p,
+.clinical-stage span,
+.clinical-evidence span,
+.clinical-kpi span,
+.problem-bullet small {
+  color: var(--med-muted) !important;
+  font-size: 0.98rem !important;
+  line-height: 1.72 !important;
+  letter-spacing: 0 !important;
+}
+
+.hero-content p {
+  max-width: 600px !important;
+  margin: 0 0 32px !important;
+  padding: 0 0 0 22px !important;
+  border-left: 3px solid var(--med-line-strong) !important;
+  background: transparent !important;
+  color: var(--med-ink-soft) !important;
+  font-size: clamp(1.02rem, 1.45vw, 1.16rem) !important;
+}
+
+.hero-content p strong {
+  color: var(--med-ink) !important;
+  font-weight: 700 !important;
+}
+
+.hero-actions,
+.cta-buttons {
+  gap: 12px !important;
+}
+
+.btn-primary,
+.btn-secondary,
+.next-page-button,
+.uc-tab,
+.hero-proto-tab,
+button,
+.clinical-now-phase {
+  border-radius: 4px !important;
+  box-shadow: none !important;
+  text-transform: none !important;
+  letter-spacing: 0 !important;
+  font-weight: 650 !important;
+}
+
+.btn-primary,
+.next-page-button,
+.uc-tab.active-diag,
+.uc-tab.active-tele,
+.hero-proto-tab.active,
+.clinical-now-phase {
+  background: var(--med-blue) !important;
+  border: 1px solid var(--med-blue) !important;
+  color: #fff !important;
+}
+
+.btn-primary:hover,
+.next-page-button:hover {
+  background: var(--med-blue-deep) !important;
+  border-color: var(--med-blue-deep) !important;
+  transform: none !important;
+}
+
+.btn-secondary,
+.uc-tab,
+.hero-proto-tab {
+  background: #fff !important;
+  border: 1px solid var(--med-line-strong) !important;
+  color: var(--med-ink-soft) !important;
+}
+
+.hero-visual {
+  display: flex !important;
+  justify-content: flex-end !important;
+}
+
+.hero-proto-selector,
+.vest-frame,
+.hero-proto-stage,
+.problem-diagram,
+.problem-diagram-clean,
+.uc-simple-shell,
+.uc-panel-shell,
+.tech-how-panel,
+.clinical-now-panel,
+.clinical-path-panel,
+.cta-inner {
+  background: #fff !important;
+  border: 1px solid var(--med-line) !important;
+  border-radius: 8px !important;
+  box-shadow: 0 1px 2px rgba(16, 32, 51, 0.04) !important;
+}
+
+.hero-proto-selector,
+.vest-frame {
+  width: min(100%, 470px) !important;
+  padding: 22px !important;
+}
+
+.vest-label-top,
+.hero-proto-tag,
+.uc-direct-line span,
+.prototype-chip,
+.problem-pill {
+  border-radius: 3px !important;
+  background: var(--med-bg-alt) !important;
+  border: 1px solid var(--med-line) !important;
+  color: var(--med-ink-soft) !important;
+  box-shadow: none !important;
+  text-transform: none !important;
+  letter-spacing: 0 !important;
+}
+
+.vest-subtitle,
+.prototype-meta span,
+.prototype-chip,
+.hero-proto-selector .prototype-meta span {
+  color: var(--med-muted) !important;
+}
+
+.hero-proto-tabs {
+  display: grid !important;
+  gap: 0 !important;
+  padding: 0 !important;
+  margin-bottom: 14px !important;
+  background: #fff !important;
+  border: 1px solid var(--med-line) !important;
+  border-radius: 4px !important;
+  overflow: hidden !important;
+}
+
+.hero-proto-tab {
+  border: 0 !important;
+  border-right: 1px solid var(--med-line) !important;
+  border-radius: 0 !important;
+  background: #fff !important;
+  color: var(--med-ink-soft) !important;
+}
+
+.hero-proto-tab:last-child {
+  border-right: 0 !important;
+}
+
+.hero-proto-tab.active {
+  background: var(--med-blue-soft) !important;
+  color: var(--med-blue-deep) !important;
+}
+
+.hero-proto-stage {
+  background: var(--med-bg-alt) !important;
+  min-height: 328px !important;
+  padding: 22px !important;
+}
+
+.hero-proto-panel svg {
+  filter: none !important;
+}
+
+.prototype-meta,
+.problem-stat,
+.problem-bullet,
+.problem-impact-card,
+.feature-card,
+.team-card,
+.tech-mini-card,
+.tech-device-card,
+.tech-stack-card,
+.tech-visual-box,
+.tech-note-card,
+.tech-benefit,
+.tech-step-big,
+.tech-output,
+.clinical-stage,
+.clinical-evidence,
+.clinical-kpi,
+.uc-simple-step,
+.uc-direct-card,
+.diag-step,
+.diag-condition,
+.tele-node,
+.tele-dashboard,
+.tele-check,
+.dash-patient,
+.pipeline-node,
+.tech-pipeline,
+.product-workflow-note,
+.product-preview-card {
+  background: #fff !important;
+  border: 1px solid var(--med-line) !important;
+  border-radius: 6px !important;
+  box-shadow: none !important;
+  transform: none !important;
+}
+
+.feature-card:hover,
+.team-card:hover,
+.tech-step-big:hover,
+.uc-simple-step:hover,
+.uc-direct-card:hover {
+  transform: none !important;
+  border-color: var(--med-line-strong) !important;
+  box-shadow: none !important;
+}
+
+.feature-card,
+.team-card {
+  padding: 28px 26px !important;
+}
+
+.feature-card h3,
+.team-card h3,
+.problem-stat strong,
+.problem-bullet strong,
+.problem-impact-card strong,
+.tech-mini-card strong,
+.tech-stack-card strong,
+.tech-note-card strong,
+.tech-benefit b,
+.clinical-evidence strong,
+.clinical-kpi strong {
+  color: var(--med-ink) !important;
+  font-weight: 700 !important;
+}
+
+.problem-redesign,
+#technology .tech-grid.tech-redesign,
+.clinical-hero,
+.team-grid,
+.features-grid,
+.uc-direct-grid {
+  gap: clamp(26px, 4vw, 52px) !important;
+}
+
+.problem-flow {
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  gap: 12px !important;
+}
+
+.flow-arrow {
+  display: none !important;
+}
+
+.flow-node {
+  min-height: 0 !important;
+  padding: 20px !important;
+  background: #fff !important;
+  border: 1px solid var(--med-line) !important;
+  border-radius: 6px !important;
+  box-shadow: none !important;
+}
+
+.flow-icon,
+.problem-bullet-dot,
+.tech-stack-icon {
+  width: 34px !important;
+  height: 34px !important;
+  border-radius: 4px !important;
+  background: var(--med-blue-soft) !important;
+  border: 1px solid #c9dde9 !important;
+  color: var(--med-blue-deep) !important;
+}
+
+.problem-bullet-highlight,
+.tech-stack-card.highlight,
+.tech-step-big.featured,
+.flow-node.problem-highlight,
+.clinical-now-panel {
+  background: var(--med-blue-soft) !important;
+  border-color: #bfd7e6 !important;
+}
+
+.problem-snapshot,
+.problem-bottom-row,
+.tech-benefit-strip,
+.tech-note-row,
+.uc-hero-metrics {
+  gap: 12px !important;
+}
+
+.tech-step-flow,
+.tech-benefit-strip,
+.tech-note-row {
+  display: grid !important;
+}
+
+.tech-arrow-row,
+.tech-arrow-row::before,
+.tech-arrow-row::after,
+.tech-arrow-tip1,
+.tech-arrow-tip2 {
+  display: none !important;
+}
+
+.tech-visual-box {
+  background: var(--med-bg-alt) !important;
+}
+
+.tech-visual-box svg,
+.hero-proto-stage svg,
+.clinical-path-panel svg,
+.uc-simple-shell svg {
+  filter: none !important;
+}
+
+svg text,
+.uc-svg-text-main,
+.uc-svg-text-small,
+.tech-visual-box svg text,
+.hero-proto-panel svg text {
+  fill: var(--med-ink) !important;
+}
+
+svg [stroke] {
+  stroke-opacity: 0.9 !important;
+}
+
+.team-card {
+  text-align: left !important;
+}
+
+.avatar {
+  margin-left: 0 !important;
+  border-radius: 6px !important;
+  background: var(--med-bg-alt) !important;
+  border: 1px solid var(--med-line) !important;
+  box-shadow: none !important;
+}
+
+.team-card .role {
+  color: var(--med-blue) !important;
+}
+
+.stats-row,
+.governance-strip,
+footer {
+  background: var(--med-bg-alt) !important;
+  border-top: 1px solid var(--med-line) !important;
+  border-bottom: 0 !important;
+  box-shadow: none !important;
+}
+
+.investigational-status,
+.investigational-disclaimer,
+.disclaimer,
+[class*="disclaimer"] {
+  background: var(--med-red-soft) !important;
+  border: 1px solid #efd0d2 !important;
+  border-radius: 4px !important;
+  color: #7e2f34 !important;
+  box-shadow: none !important;
+}
+
+#regulatory .cta-inner {
+  max-width: 820px !important;
+  padding: 44px !important;
+  text-align: left !important;
+}
+
+#regulatory h2 {
+  max-width: 780px !important;
+  font-size: clamp(2rem, 4vw, 3.4rem) !important;
+  line-height: 1.04 !important;
+}
+
+#regulatory p {
+  max-width: 720px !important;
+}
+
+@media (max-width: 980px) {
+  .container,
+  .nav-container {
+    width: min(100% - 32px, 1120px) !important;
+  }
+
+  nav,
+  .nav-container {
+    height: auto !important;
+    min-height: 68px !important;
+  }
+
+  .nav-container {
+    padding: 14px 0 !important;
+    align-items: flex-start !important;
+    gap: 14px !important;
+  }
+
+  .nav-links {
+    flex-wrap: wrap !important;
+    justify-content: flex-end !important;
+    row-gap: 4px !important;
+  }
+
+  .nav-links a,
+  .nav-links a.page-link,
+  .nav-links a.page-link.active:not(.nav-cta) {
+    padding: 7px 8px !important;
+  }
+
+  .nav-cta,
+  .nav-links a.nav-cta {
+    margin-left: 4px !important;
+    padding: 8px 12px !important;
+  }
+
+  .hero-grid,
+  .problem-redesign,
+  #technology .tech-grid.tech-redesign,
+  .clinical-hero {
+    grid-template-columns: 1fr !important;
+  }
+
+  .hero-visual {
+    justify-content: flex-start !important;
+  }
+}
+
+@media (max-width: 720px) {
+  .container,
+  .nav-container {
+    width: min(100% - 26px, 1120px) !important;
+  }
+
+  section,
+  .site-page,
+  #hero,
+  #problem,
+  #use-cases,
+  #solution,
+  #technology,
+  #clinical,
+  #team,
+  #contact,
+  #regulatory {
+    padding: 64px 0 !important;
+  }
+
+  #hero {
+    padding-top: 150px !important;
+  }
+
+  .hero-title {
+    font-size: clamp(2.45rem, 12vw, 3.75rem) !important;
+  }
+
+  .hero-content p {
+    padding-left: 16px !important;
+  }
+
+  .problem-flow,
+  .problem-bottom-row,
+  .problem-snapshot,
+  .uc-hero-metrics,
+  .tech-benefit-strip,
+  .tech-note-row {
+    grid-template-columns: 1fr !important;
+  }
+
+  .hero-proto-selector,
+  .vest-frame,
+  .cta-inner,
+  #regulatory .cta-inner {
+    padding: 20px !important;
+  }
 }
 </style>
 <style id="sonohl-postfiat-section-fixes">
@@ -10899,5 +12494,768 @@ body:not(.dark-mode) #regulatory h2 {
 
 body:not(.dark-mode) #regulatory p {
   max-width: 720px !important;
+}
+</style>
+<style id="lean-medtech-true-final-overhaul">
+/* True final layer: removes the rounded/red AI-style shell in favor of a lean medtech website. */
+:root {
+  --med-ink: #102033 !important;
+  --med-ink-soft: #34475e !important;
+  --med-muted: #667789 !important;
+  --med-blue: #1f5f8b !important;
+  --med-blue-deep: #143f5f !important;
+  --med-blue-soft: #eaf3f8 !important;
+  --med-red: #a93f46 !important;
+  --med-red-soft: #fff6f6 !important;
+  --med-bg: #fff !important;
+  --med-bg-alt: #f6f8fa !important;
+  --med-line: #d8e0e8 !important;
+  --med-line-strong: #bfccd8 !important;
+}
+html,
+body,
+body:not(.dark-mode) {
+  background: var(--med-bg) !important;
+  color: var(--med-ink) !important;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
+}
+body::before,
+body::after,
+body:not(.dark-mode)::before,
+body:not(.dark-mode)::after,
+.hero-bg,
+#single-page-stage > .site-page::before,
+#single-page-stage > .site-page::after,
+.site-page::before,
+.site-page::after,
+.hero-content::after,
+.hero-proto-selector::before,
+.hero-proto-selector::after,
+.hero-proto-stage::before,
+.hero-proto-stage::after,
+.problem-diagram::before,
+.problem-diagram::after,
+.tech-how-panel::after,
+.clinical-now-panel::before,
+.clinical-path-panel::before,
+.cta-inner::before,
+.cta-inner::after {
+  content: none !important;
+  display: none !important;
+  background: none !important;
+  box-shadow: none !important;
+}
+.container {
+  width: min(100% - 48px, 1120px) !important;
+  max-width: 1120px !important;
+}
+section,
+.site-page,
+.site-page.active,
+#hero,
+#problem,
+#use-cases,
+#solution,
+#technology,
+#clinical,
+#team,
+#contact,
+#regulatory,
+#single-page-stage > .site-page {
+  background: var(--med-bg) !important;
+  color: var(--med-ink) !important;
+  min-height: auto !important;
+  padding: clamp(72px, 9vw, 116px) 0 !important;
+  overflow: visible !important;
+}
+#single-page-stage > .site-page:nth-child(even),
+#problem,
+#technology,
+#team,
+#regulatory {
+  background: var(--med-bg-alt) !important;
+}
+nav,
+body:not(.dark-mode) nav,
+body:not(.dark-mode) nav#navbar {
+  position: fixed !important;
+  inset: 0 0 auto 0 !important;
+  z-index: 1000 !important;
+  height: 72px !important;
+  padding: 0 !important;
+  background: rgba(255,255,255,.96) !important;
+  border: 0 !important;
+  border-bottom: 1px solid var(--med-line) !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  backdrop-filter: blur(14px) !important;
+}
+.nav-container {
+  width: min(100% - 48px, 1160px) !important;
+  max-width: 1160px !important;
+  height: 72px !important;
+  margin: 0 auto !important;
+  padding: 0 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  background: transparent !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+.nav-logo,
+.nav-logo span {
+  color: var(--med-ink) !important;
+  font-size: 1.02rem !important;
+  font-weight: 650 !important;
+  letter-spacing: -.02em !important;
+  text-transform: none !important;
+}
+.nav-logo::before {
+  background: var(--med-red) !important;
+  box-shadow: none !important;
+}
+.nav-links {
+  gap: 4px !important;
+  align-items: center !important;
+}
+.nav-links a,
+.nav-links a.page-link,
+.nav-links a.page-link.active:not(.nav-cta) {
+  color: var(--med-ink-soft) !important;
+  background: transparent !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  padding: 24px 11px 22px !important;
+  margin: 0 !important;
+  font-size: .82rem !important;
+  font-weight: 550 !important;
+  letter-spacing: 0 !important;
+  text-transform: none !important;
+}
+.nav-links a:hover,
+.nav-links a.page-link.active:not(.nav-cta) {
+  color: var(--med-blue-deep) !important;
+  border-bottom: 2px solid var(--med-blue) !important;
+}
+.nav-cta,
+a.nav-cta,
+.nav-links a.nav-cta {
+  margin-left: 12px !important;
+  padding: 10px 16px !important;
+  border-radius: 4px !important;
+  border: 1px solid var(--med-blue) !important;
+  background: var(--med-blue) !important;
+  color: #fff !important;
+  box-shadow: none !important;
+  font-weight: 650 !important;
+  text-transform: none !important;
+}
+.nav-cta:hover,
+a.nav-cta:hover,
+.nav-links a.nav-cta:hover {
+  background: var(--med-blue-deep) !important;
+  border-color: var(--med-blue-deep) !important;
+  color: #fff !important;
+}
+#hero,
+#single-page-stage > .site-page[data-page="home"] {
+  padding-top: clamp(126px,14vw,168px) !important;
+  padding-bottom: clamp(74px,10vw,120px) !important;
+  border-bottom: 1px solid var(--med-line) !important;
+}
+.hero-grid {
+  display: grid !important;
+  grid-template-columns: minmax(0,1.02fr) minmax(360px,.98fr) !important;
+  gap: clamp(42px,6vw,76px) !important;
+  align-items: center !important;
+}
+.hero-content {
+  max-width: 650px !important;
+  padding: 0 !important;
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+.label,
+.hero-content .label,
+.problem-copy .label,
+.team-header .label,
+.tech-emphasis-head .label,
+.clinical-hero-copy .label,
+.cta-inner .label,
+.uc-direct-header .label,
+#use-cases .label {
+  display: inline-block !important;
+  padding: 0 0 10px !important;
+  margin: 0 0 22px !important;
+  border: 0 !important;
+  border-bottom: 2px solid var(--med-red) !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  color: var(--med-red) !important;
+  font-size: .76rem !important;
+  line-height: 1.2 !important;
+  font-weight: 700 !important;
+  letter-spacing: .1em !important;
+  text-transform: uppercase !important;
+  box-shadow: none !important;
+}
+.label::before,
+.label::after,
+.hero-content .label::before,
+.problem-copy .label::before,
+.clinical-hero-copy .label::before,
+.cta-inner .label::before {
+  display: none !important;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.hero-title,
+.tech-emphasis-head h2,
+.clinical-hero-copy h2,
+.problem-copy h2,
+.cta-inner h2 {
+  color: var(--med-ink) !important;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
+  font-weight: 700 !important;
+  letter-spacing: -.045em !important;
+  text-transform: none !important;
+  text-wrap: balance !important;
+}
+.hero-title {
+  max-width: 680px !important;
+  margin: 0 0 28px !important;
+  font-size: clamp(2.85rem,5.4vw,5.15rem) !important;
+  line-height: .98 !important;
+}
+h2,
+.problem-copy h2,
+.tech-emphasis-head h2,
+.clinical-hero-copy h2,
+.cta-inner h2 {
+  font-size: clamp(2.05rem,3.7vw,3.55rem) !important;
+  line-height: 1.02 !important;
+}
+h3 {
+  font-size: 1.04rem !important;
+  line-height: 1.28 !important;
+  letter-spacing: -.015em !important;
+}
+.hero-title span {
+  display: inline !important;
+}
+.hero-title-accent,
+.feature-icon,
+.tech-step-num,
+.clinical-stage-num,
+.uc-step-number {
+  color: var(--med-blue) !important;
+  -webkit-text-fill-color: var(--med-blue) !important;
+  background: none !important;
+}
+p,
+li,
+small,
+.hero-content p,
+.problem-copy .problem-lead,
+.tech-emphasis-head p,
+.clinical-hero-copy p,
+.cta-inner p,
+.feature-card p,
+.team-card p,
+.tech-step-big p,
+.tech-benefit span,
+.tech-note-card p,
+.clinical-stage span,
+.clinical-evidence span,
+.clinical-kpi span,
+.problem-bullet small {
+  color: var(--med-muted) !important;
+  font-size: .98rem !important;
+  line-height: 1.72 !important;
+  letter-spacing: 0 !important;
+}
+.hero-content p {
+  max-width: 600px !important;
+  margin: 0 0 32px !important;
+  padding: 0 0 0 22px !important;
+  border-left: 3px solid var(--med-line-strong) !important;
+  background: transparent !important;
+  color: var(--med-ink-soft) !important;
+  font-size: clamp(1.02rem,1.45vw,1.16rem) !important;
+}
+.hero-content p strong {
+  color: var(--med-ink) !important;
+  font-weight: 700 !important;
+}
+.hero-actions,
+.cta-buttons {
+  gap: 12px !important;
+}
+.btn-primary,
+.btn-secondary,
+.next-page-button,
+.uc-tab,
+.hero-proto-tab,
+button,
+.clinical-now-phase {
+  border-radius: 4px !important;
+  box-shadow: none !important;
+  text-transform: none !important;
+  letter-spacing: 0 !important;
+  font-weight: 650 !important;
+}
+.btn-primary,
+.next-page-button,
+.uc-tab.active-diag,
+.uc-tab.active-tele,
+.hero-proto-tab.active,
+.clinical-now-phase {
+  background: var(--med-blue) !important;
+  border: 1px solid var(--med-blue) !important;
+  color: #fff !important;
+}
+.btn-primary:hover,
+.next-page-button:hover {
+  background: var(--med-blue-deep) !important;
+  border-color: var(--med-blue-deep) !important;
+  transform: none !important;
+}
+.btn-secondary,
+.uc-tab,
+.hero-proto-tab {
+  background: #fff !important;
+  border: 1px solid var(--med-line-strong) !important;
+  color: var(--med-ink-soft) !important;
+}
+.hero-visual {
+  display: flex !important;
+  justify-content: flex-end !important;
+}
+.hero-proto-selector,
+.vest-frame,
+.hero-proto-stage,
+.problem-diagram,
+.problem-diagram-clean,
+.uc-simple-shell,
+.uc-panel-shell,
+.tech-how-panel,
+.clinical-now-panel,
+.clinical-path-panel,
+.cta-inner {
+  background: #fff !important;
+  border: 1px solid var(--med-line) !important;
+  border-radius: 8px !important;
+  box-shadow: 0 1px 2px rgba(16,32,51,.04) !important;
+}
+.hero-proto-selector,
+.vest-frame {
+  width: min(100%,470px) !important;
+  padding: 22px !important;
+}
+.vest-label-top,
+.hero-proto-tag,
+.uc-direct-line span,
+.prototype-chip,
+.problem-pill {
+  border-radius: 3px !important;
+  background: var(--med-bg-alt) !important;
+  border: 1px solid var(--med-line) !important;
+  color: var(--med-ink-soft) !important;
+  box-shadow: none !important;
+  text-transform: none !important;
+  letter-spacing: 0 !important;
+}
+.vest-subtitle,
+.prototype-meta span,
+.prototype-chip,
+.hero-proto-selector .prototype-meta span {
+  color: var(--med-muted) !important;
+}
+.hero-proto-tabs {
+  display: grid !important;
+  gap: 0 !important;
+  padding: 0 !important;
+  margin-bottom: 14px !important;
+  background: #fff !important;
+  border: 1px solid var(--med-line) !important;
+  border-radius: 4px !important;
+  overflow: hidden !important;
+}
+.hero-proto-tab {
+  border: 0 !important;
+  border-right: 1px solid var(--med-line) !important;
+  border-radius: 0 !important;
+  background: #fff !important;
+  color: var(--med-ink-soft) !important;
+}
+.hero-proto-tab:last-child {
+  border-right: 0 !important;
+}
+.hero-proto-tab.active {
+  background: var(--med-blue-soft) !important;
+  color: var(--med-blue-deep) !important;
+}
+.hero-proto-stage {
+  background: var(--med-bg-alt) !important;
+  min-height: 328px !important;
+  padding: 22px !important;
+}
+.hero-proto-panel svg {
+  filter: none !important;
+}
+.prototype-meta,
+.problem-stat,
+.problem-bullet,
+.problem-impact-card,
+.feature-card,
+.team-card,
+.tech-mini-card,
+.tech-device-card,
+.tech-stack-card,
+.tech-visual-box,
+.tech-note-card,
+.tech-benefit,
+.tech-step-big,
+.tech-output,
+.clinical-stage,
+.clinical-evidence,
+.clinical-kpi,
+.uc-simple-step,
+.uc-direct-card,
+.diag-step,
+.diag-condition,
+.tele-node,
+.tele-dashboard,
+.tele-check,
+.dash-patient,
+.pipeline-node,
+.tech-pipeline,
+.product-workflow-note,
+.product-preview-card {
+  background: #fff !important;
+  border: 1px solid var(--med-line) !important;
+  border-radius: 6px !important;
+  box-shadow: none !important;
+  transform: none !important;
+}
+.feature-card:hover,
+.team-card:hover,
+.tech-step-big:hover,
+.uc-simple-step:hover,
+.uc-direct-card:hover {
+  transform: none !important;
+  border-color: var(--med-line-strong) !important;
+  box-shadow: none !important;
+}
+.feature-card,
+.team-card {
+  padding: 28px 26px !important;
+}
+.feature-card h3,
+.team-card h3,
+.problem-stat strong,
+.problem-bullet strong,
+.problem-impact-card strong,
+.tech-mini-card strong,
+.tech-stack-card strong,
+.tech-note-card strong,
+.tech-benefit b,
+.clinical-evidence strong,
+.clinical-kpi strong {
+  color: var(--med-ink) !important;
+  font-weight: 700 !important;
+}
+.problem-redesign,
+#technology .tech-grid.tech-redesign,
+.clinical-hero,
+.team-grid,
+.features-grid,
+.uc-direct-grid {
+  gap: clamp(26px,4vw,52px) !important;
+}
+body:not(.dark-mode) #single-page-stage > .site-page[data-page="problem"] .problem-flow,
+body:not(.dark-mode) #problem .problem-flow,
+.problem-flow {
+  display: grid !important;
+  grid-template-columns: repeat(3,minmax(0,1fr)) !important;
+  gap: 12px !important;
+}
+body:not(.dark-mode) #single-page-stage > .site-page[data-page="problem"] .flow-arrow,
+body:not(.dark-mode) #problem .flow-arrow,
+.flow-arrow {
+  display: none !important;
+}
+body:not(.dark-mode) #single-page-stage > .site-page[data-page="problem"] .flow-node,
+body:not(.dark-mode) #problem .flow-node,
+.flow-node {
+  min-height: 0 !important;
+  padding: 20px !important;
+  display: block !important;
+  background: #fff !important;
+  border: 1px solid var(--med-line) !important;
+  border-radius: 6px !important;
+  box-shadow: none !important;
+}
+.flow-icon,
+.problem-bullet-dot,
+.tech-stack-icon {
+  width: 34px !important;
+  height: 34px !important;
+  border-radius: 4px !important;
+  background: var(--med-blue-soft) !important;
+  border: 1px solid #c9dde9 !important;
+  color: var(--med-blue-deep) !important;
+  margin-bottom: 12px !important;
+}
+.problem-bullet-highlight,
+.tech-stack-card.highlight,
+.tech-step-big.featured,
+.flow-node.problem-highlight,
+.clinical-now-panel {
+  background: var(--med-blue-soft) !important;
+  border-color: #bfd7e6 !important;
+}
+.problem-snapshot,
+.problem-bottom-row,
+.tech-benefit-strip,
+.tech-note-row,
+.uc-hero-metrics {
+  gap: 12px !important;
+}
+.tech-step-flow,
+.tech-benefit-strip,
+.tech-note-row {
+  display: grid !important;
+}
+.tech-arrow-row,
+.tech-arrow-row::before,
+.tech-arrow-row::after,
+.tech-arrow-tip1,
+.tech-arrow-tip2 {
+  display: none !important;
+}
+.tech-visual-box {
+  background: var(--med-bg-alt) !important;
+}
+.tech-visual-box svg,
+.hero-proto-stage svg,
+.clinical-path-panel svg,
+.uc-simple-shell svg {
+  filter: none !important;
+}
+svg text,
+.uc-svg-text-main,
+.uc-svg-text-small,
+.tech-visual-box svg text,
+.hero-proto-panel svg text {
+  fill: var(--med-ink) !important;
+}
+svg [stroke] {
+  stroke-opacity: .9 !important;
+}
+.team-card {
+  text-align: left !important;
+}
+.avatar {
+  margin-left: 0 !important;
+  border-radius: 6px !important;
+  background: var(--med-bg-alt) !important;
+  border: 1px solid var(--med-line) !important;
+  box-shadow: none !important;
+}
+.team-card .role {
+  color: var(--med-blue) !important;
+}
+.stats-row,
+.governance-strip,
+footer {
+  background: var(--med-bg-alt) !important;
+  border-top: 1px solid var(--med-line) !important;
+  border-bottom: 0 !important;
+  box-shadow: none !important;
+}
+.investigational-status,
+.investigational-disclaimer,
+.disclaimer,
+[class*="disclaimer"] {
+  background: var(--med-red-soft) !important;
+  border: 1px solid #efd0d2 !important;
+  border-radius: 4px !important;
+  color: #7e2f34 !important;
+  box-shadow: none !important;
+}
+#regulatory .cta-inner {
+  max-width: 820px !important;
+  padding: 44px !important;
+  text-align: left !important;
+}
+#regulatory h2 {
+  max-width: 780px !important;
+  font-size: clamp(2rem,4vw,3.4rem) !important;
+  line-height: 1.04 !important;
+}
+#regulatory p {
+  max-width: 720px !important;
+}
+@media (max-width: 980px) {
+  .container,
+  .nav-container {
+    width: min(100% - 32px,1120px) !important;
+  }
+  nav,
+  .nav-container {
+    height: auto !important;
+    min-height: 68px !important;
+  }
+  .nav-container {
+    padding: 14px 0 !important;
+    align-items: flex-start !important;
+    gap: 14px !important;
+  }
+  .nav-links {
+    flex-wrap: wrap !important;
+    justify-content: flex-end !important;
+    row-gap: 4px !important;
+  }
+  .nav-links a,
+  .nav-links a.page-link,
+  .nav-links a.page-link.active:not(.nav-cta) {
+    padding: 7px 8px !important;
+  }
+  .nav-cta,
+  .nav-links a.nav-cta {
+    margin-left: 4px !important;
+    padding: 8px 12px !important;
+  }
+  .hero-grid,
+  .problem-redesign,
+  #technology .tech-grid.tech-redesign,
+  .clinical-hero {
+    grid-template-columns: 1fr !important;
+  }
+  .hero-visual {
+    justify-content: flex-start !important;
+  }
+}
+@media (max-width: 720px) {
+  .container,
+  .nav-container {
+    width: min(100% - 26px,1120px) !important;
+  }
+  section,
+  .site-page,
+  #hero,
+  #problem,
+  #use-cases,
+  #solution,
+  #technology,
+  #clinical,
+  #team,
+  #contact,
+  #regulatory {
+    padding: 64px 0 !important;
+  }
+  #hero {
+    padding-top: 150px !important;
+  }
+  .hero-title {
+    font-size: clamp(2.45rem,12vw,3.75rem) !important;
+  }
+  .hero-content p {
+    padding-left: 16px !important;
+  }
+  .problem-flow,
+  .problem-bottom-row,
+  .problem-snapshot,
+  .uc-hero-metrics,
+  .tech-benefit-strip,
+  .tech-note-row {
+    grid-template-columns: 1fr !important;
+  }
+  .hero-proto-selector,
+  .vest-frame,
+  .cta-inner,
+  #regulatory .cta-inner {
+    padding: 20px !important;
+  }
+}
+</style>
+<style id="lean-medtech-true-final-scalpel">
+body:not(.dark-mode),
+body:not(.dark-mode) #single-page-stage,
+body:not(.dark-mode) main,
+body:not(.dark-mode) section,
+body:not(.dark-mode) .site-page,
+body:not(.dark-mode) .container,
+body:not(.dark-mode) .hero-grid,
+body:not(.dark-mode) .problem-redesign,
+body:not(.dark-mode) .clinical-hero,
+body:not(.dark-mode) .tech-grid {
+  background-color: #fff !important;
+  background-image: none !important;
+}
+body:not(.dark-mode) #problem,
+body:not(.dark-mode) #technology,
+body:not(.dark-mode) #team,
+body:not(.dark-mode) #regulatory,
+body:not(.dark-mode) #single-page-stage > .site-page:nth-child(even) {
+  background-color: #f6f8fa !important;
+  background-image: none !important;
+}
+body:not(.dark-mode) :is(.hero-proto-selector,.vest-frame,.hero-proto-stage,.problem-diagram,.problem-diagram-clean,.feature-card,.team-card,.tech-how-panel,.tech-step-big,.tech-note-card,.tech-benefit,.tech-output,.clinical-now-panel,.clinical-path-panel,.clinical-stage,.clinical-evidence,.clinical-kpi,.uc-simple-shell,.uc-panel-shell,.uc-simple-step,.uc-direct-card,.diag-step,.diag-condition,.tele-node,.tele-dashboard,.tele-check,.dash-patient,.problem-stat,.problem-bullet,.problem-impact-card,.prototype-meta,.prototype-chip,.pipeline-node,.tech-pipeline,.product-workflow-note,.product-preview-card,.cta-inner) {
+  background-color: #fff !important;
+  background-image: none !important;
+  border-color: #d8e0e8 !important;
+  border-radius: 3px !important;
+  box-shadow: none !important;
+}
+body:not(.dark-mode) :is(.hero-proto-stage,.tech-visual-box) {
+  background-color: #f6f8fa !important;
+}
+body:not(.dark-mode) :is(.btn-primary,.btn-secondary,.next-page-button,.nav-cta,.uc-tab,.hero-proto-tab,.problem-pill,.hero-proto-tag,.prototype-chip,.label) {
+  border-radius: 2px !important;
+  box-shadow: none !important;
+}
+body:not(.dark-mode) .hero-title {
+  font-size: clamp(2.65rem, 4.8vw, 4.7rem) !important;
+  letter-spacing: -.055em !important;
+}
+body:not(.dark-mode) .hero-content p {
+  background: transparent !important;
+  border-radius: 0 !important;
+}
+</style>
+<style id="lean-medtech-home-background-final">
+body:not(.dark-mode) main#page-root,
+body:not(.dark-mode) #single-page-stage,
+body:not(.dark-mode) #single-page-stage > .site-page,
+body:not(.dark-mode) #single-page-stage > .site-page.active,
+body:not(.dark-mode) #single-page-stage > .site-page[data-page="home"],
+body:not(.dark-mode) #single-page-stage > .site-page[data-page="home"].active,
+body:not(.dark-mode) #hero,
+body:not(.dark-mode) #hero.active {
+  background: #fff !important;
+  background-color: #fff !important;
+  background-image: none !important;
+}
+body:not(.dark-mode) #problem,
+body:not(.dark-mode) #technology,
+body:not(.dark-mode) #team,
+body:not(.dark-mode) #regulatory,
+body:not(.dark-mode) #single-page-stage > .site-page[data-page="problem"],
+body:not(.dark-mode) #single-page-stage > .site-page[data-page="technology"],
+body:not(.dark-mode) #single-page-stage > .site-page[data-page="team"],
+body:not(.dark-mode) #single-page-stage > .site-page[data-page="regulatory"] {
+  background: #f6f8fa !important;
+  background-color: #f6f8fa !important;
+  background-image: none !important;
 }
 </style>
