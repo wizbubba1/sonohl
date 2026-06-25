@@ -2324,6 +2324,44 @@ footer,
   }
 }
 </style>
+<style id="scroll-unlock-final">
+html,
+body,
+body:not(.dark-mode) {
+  height: auto !important;
+  min-height: 100% !important;
+  overflow-x: hidden !important;
+  overflow-y: auto !important;
+  position: static !important;
+}
+
+main,
+main#page-root,
+#single-page-stage,
+#single-page-stage > .site-page,
+#single-page-stage > .site-page.active,
+#single-page-stage > .site-page.exiting {
+  position: relative !important;
+  inset: auto !important;
+  width: 100% !important;
+  height: auto !important;
+  min-height: 0 !important;
+  max-height: none !important;
+  overflow: visible !important;
+}
+
+#single-page-stage {
+  display: block !important;
+}
+
+#single-page-stage > .site-page {
+  overflow: visible !important;
+}
+
+body {
+  overscroll-behavior-y: auto !important;
+}
+</style>
 <style id="lean-medtech-final-scalpel">
 body:not(.dark-mode),
 body:not(.dark-mode) #single-page-stage,
